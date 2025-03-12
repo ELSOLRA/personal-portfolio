@@ -12,7 +12,7 @@ export default function SanityTest() {
   const client = createClient({
     projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "",
     dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
-    apiVersion: "2023-05-03",
+    apiVersion: "2025-03-11",
     useCdn: false,
   });
 
