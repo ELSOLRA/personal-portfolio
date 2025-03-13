@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@portabletext/types": "^2.0.13",
     "@sanity/vision": "^3.78.1",
     "next": "15.2.1",
     "next-sanity": "^9.9.0",
