@@ -1,6 +1,7 @@
 import { getAbout } from "@/sanity/lib/queries";
 import { urlForImage } from "@/sanity/lib/image";
 import Image from "next/image";
+import Navigation from "../components/global/Navigation";
 
 export default async function AboutTestPage() {
   const about = await getAbout();
@@ -42,7 +43,7 @@ export default async function AboutTestPage() {
         </div>
       ) : (
         <p className="mt-4 text-red-500">
-          No about data found. Add some in your Sanity studio.
+          No about data found. Add some in Sanity studio.
         </p>
       )}
     </div>
