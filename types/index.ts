@@ -77,3 +77,30 @@ export interface Experience {
   technologies?: string[];
   order?: number;
 }
+
+export interface Hero {
+  _id: string;
+  _type: "hero";
+  title?: string;
+  subtitle?: string;
+  description?: string;
+  mainImage?: SanityImage;
+  logo?: SanityImage;
+  backgroundColor?: {
+    hex: string;
+    alpha?: number;
+  };
+  textColor?: {
+    hex: string;
+    alpha?: number;
+  };
+  accentColor?: {
+    hex: string;
+    alpha?: number;
+  };
+  primaryButtonText?: string;
+  primaryButtonUrl?: string;
+  secondaryButtonText?: string;
+  secondaryButtonUrl?: string;
+  layout?: "split-right" | "split-left" | "overlay" | "minimal";
+}

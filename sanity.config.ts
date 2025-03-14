@@ -2,6 +2,7 @@ import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
 import { visionTool } from "@sanity/vision";
 import { schemaTypes } from "./sanity/schemas";
+import { colorInput } from "@sanity/color-input";
 
 export default defineConfig({
   name: "personal-portfolio",
@@ -11,7 +12,7 @@ export default defineConfig({
   apiVersion: "2025-03-11",
   basePath: "/studio",
 
-  plugins: [structureTool(), visionTool()],
+  plugins: [structureTool(), visionTool(), colorInput()],
 
   schema: {
     types: schemaTypes,
