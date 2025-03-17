@@ -31,7 +31,7 @@ export default function NavigationClient({ about }: NavigationClientProps) {
 
   return (
     <header
-      className={` w-full z-50 transition-all duration-300 mt-4 ${isScrolled ? "bg-gray-900/90 backdrop-blur-sm shadow-md" : "bg-white"}`}>
+      className={`absolute top-3.5 w-full z-50 transition-all duration-300 mt-4 ${isScrolled ? "bg-gray-900/90 backdrop-blur-sm shadow-md" : "bg-white"}`}>
       <div className=" mx-auto flex justify-between items-center h-16 px-4 sm:px-6 lg:px-8 ">
         <div className="flex-shrink-0">
           <Link href="/" className="inline-block">

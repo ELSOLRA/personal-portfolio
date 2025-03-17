@@ -1,4 +1,4 @@
-import { About, Experience, Project, Skill } from "@/types";
+import { About, Experience, Hero, Project, Skill } from "@/types";
 import { client } from "./client";
 import { cache } from "react";
 import { groq } from "next-sanity";
@@ -118,6 +118,29 @@ export const getExperiences = cache(async (): Promise<Experience[]> => {
       location,
       description,
       technologies
+    }`
+  );
+});
+
+// gets hero styles and content
+export const getHero = cache(async (): Promise<Hero | null> => {
+  return client.fetch(
+    groq`*[_type == "hero"][0] {
+      _id,
+      _type,
+      title,
+      subtitle,
+      description,
+      mainImage,
+      logo,
+      backgroundColor,
+      textColor,
+      accentColor,
+      primaryButtonText,
+      primaryButtonUrl,
+      secondaryButtonText,
+      secondaryButtonUrl,
+      layout
     }`
   );
 });
