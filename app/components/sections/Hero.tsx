@@ -237,17 +237,13 @@ export default async function Hero() {
                 />
               </div>
             )}
-            <div className="text-test">Theme text color</div>
-            <h1
-              className="text-4xl lg:text-5xl font-bold tracking-tight "
-              style={{ color: textColor?.hex }}>
+            <div className="text-theme">Theme text color</div>
+
+            <h1 className="text-4xl lg:text-5xl font-bold tracking-tight text-theme">
               <span className="terminal-prompt mr-2 inline-flex items-center">
                 &gt;
               </span>
-              <TypewriterText
-                text={`${title}`}
-                textColor={textColor?.hex || "#333333"}
-              />
+              <TypewriterText text={`${title}`} />
             </h1>
             {about?.name && (
               <h2

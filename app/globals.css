@@ -6,11 +6,11 @@
 
   --theme-text-color: #0145A1;
   --theme-accent-color: #0145A1;
-  --theme-bg-color: #f5e1c0;
+  --theme-bg-color: #AC9D80;
 }
 
 @theme {
-  --color-test: #0145A1;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -52,3 +52,10 @@ body {
     animation: blink 0.75s step-end infinite;
   }
 }
+
+
+/* ensures content is hidden during initial load 
+html:not(.hydrated) {
+  opacity: 0;
+}
+    */
