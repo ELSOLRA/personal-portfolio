@@ -3,6 +3,7 @@ import { urlForImage } from "@/sanity/lib/image";
 import Image from "next/image";
 import Link from "next/link";
 import { About, Hero as HeroType } from "@/types";
+import TypewriterText from "../global/Typewriter";
 
 export default async function Hero() {
   const hero: HeroType | null = await getHero();
@@ -237,15 +238,25 @@ export default async function Hero() {
               </div>
             )}
             <h1
-              className="text-4xl lg:text-5xl font-bold tracking-tight"
+              className="text-4xl lg:text-5xl font-bold tracking-tight "
               style={{ color: textColor?.hex }}>
-              {title}
+              <span className="terminal-prompt mr-2 inline-flex items-center">
+                &gt;
+              </span>
+              <TypewriterText
+                text={`${title}`}
+                textColor={textColor?.hex || "#333333"}
+              />
             </h1>
             {about?.name && (
               <h2
                 className="mt-2 text-3xl md:text-4xl font-medium tracking-tight"
                 style={{ color: textColor?.hex }}>
-                I'm {about.name}
+                <TypewriterText
+                  text={`I'm ${about.name}`}
+                  textColor={textColor?.hex || "#333333"}
+                  startDelay={2500}
+                />
               </h2>
             )}
             <h2
