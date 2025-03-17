@@ -237,6 +237,7 @@ export default async function Hero() {
                 />
               </div>
             )}
+            <div className="text-test">Theme text color</div>
             <h1
               className="text-4xl lg:text-5xl font-bold tracking-tight "
               style={{ color: textColor?.hex }}>
