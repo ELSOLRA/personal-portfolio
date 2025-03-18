@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/app/components/global/Navigation";
-import { getHero } from "@/sanity/lib/queries";
-import { Hero as HeroType } from "@/types";
+import { getActiveTheme } from "@/sanity/lib/queries";
+import { Theme } from "@/types";
 import { ThemeProvider } from "./context/ThemeContext";
 
 const geistSans = Geist({
@@ -26,19 +26,19 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const hero: HeroType | null = await getHero(); // fetching hero data
+  const theme: Theme | null = await getActiveTheme(); // fetching theme data
 
-  // default values if hero data is missing
+  // default values if theme data is missing
   const defaultTextColor = "#333333";
   const defaultAccentColor = "#48acda";
   const defaultBackgroundColor = "#f5e1c0";
   const defaultButtonTextColor = "#ffffff";
 
-  //  initial theme styles from hero data or defaults
+  //  initial theme styles from theme data or defaults
   const initialTheme: React.CSSProperties = {
-    "--theme-text-color": hero?.textColor?.hex || defaultTextColor,
-    "--theme-accent-color": hero?.accentColor?.hex || defaultAccentColor,
-    "--theme-bg-color": hero?.backgroundColor?.hex || defaultBackgroundColor,
+    "--theme-text-color": theme?.textColor?.hex || defaultTextColor,
+    "--theme-accent-color": theme?.accentColor?.hex || defaultAccentColor,
+    "--theme-bg-color": theme?.backgroundColor?.hex || defaultBackgroundColor,
     "--theme-button-text-color": defaultButtonTextColor,
   } as React.CSSProperties;
 

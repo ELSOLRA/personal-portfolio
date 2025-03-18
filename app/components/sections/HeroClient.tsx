@@ -17,7 +17,7 @@ interface HeroClientProps {
 export default function HeroClient({ hero, about, theme }: HeroClientProps) {
   const { themeStyles, setTheme } = useTheme();
 
-  // Updates theme when component mounts or hero changes
+  // Updates theme when component mounts or theme changes
   useEffect(() => {
     if (theme) {
       setTheme({

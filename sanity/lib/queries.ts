@@ -160,3 +160,21 @@ export const getTheme = cache(async (): Promise<Theme | null> => {
     }`
   );
 });
+
+export const getActiveTheme = cache(async (): Promise<Theme | null> => {
+  return client.fetch(
+    groq`*[_type == "themeSelector"][0] {
+      "theme": activeTheme-> {
+        _id,
+        _type,
+        title,
+        backgroundColor,
+        secondaryBackgroundColor,
+        textColor,
+        secondaryTextColor,
+        accentColor,
+        secondaryAccentColor
+      }
+    }.theme`
+  );
+});
