@@ -42,8 +42,17 @@ export default async function RootLayout({
     "--theme-button-text-color": defaultButtonTextColor,
   } as React.CSSProperties;
 
+  // initial theme styles in SSR
+  const themeStyles = Object.entries(initialTheme)
+    .map(([key, value]) => `${key}: ${value}`)
+    .join("; ");
+
   return (
     <html lang="en">
+      <head>
+        {/* initial theme styles in SSR */}
+        <style>{`:root { ${themeStyles} }`}</style>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <div className="flex flex-col min-h-screen">
