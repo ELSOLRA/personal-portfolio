@@ -3,7 +3,7 @@
 import { urlForImage } from "@/sanity/lib/image";
 import Image from "next/image";
 import Link from "next/link";
-import { About, Hero as HeroType } from "@/types";
+import { About, Hero as HeroType, Theme } from "@/types";
 import TypewriterText from "../global/Typewriter";
 import { useTheme } from "@/app/context/ThemeContext";
 import { useEffect } from "react";
@@ -11,24 +11,25 @@ import { useEffect } from "react";
 interface HeroClientProps {
   hero: HeroType | null;
   about: About | null;
+  theme: Theme | null;
 }
 
-export default function HeroClient({ hero, about }: HeroClientProps) {
+export default function HeroClient({ hero, about, theme }: HeroClientProps) {
   const { themeStyles, setTheme } = useTheme();
 
   // Updates theme when component mounts or hero changes
   useEffect(() => {
-    if (hero) {
+    if (theme) {
       setTheme({
-        "--theme-text-color": hero.textColor?.hex || "#333333",
-        "--theme-accent-color": hero.accentColor?.hex || "#48acda",
-        "--theme-bg-color": hero.backgroundColor?.hex || "#f5e1c0",
+        "--theme-text-color": theme.textColor?.hex || "#333333",
+        "--theme-accent-color": theme.accentColor?.hex || "#48acda",
+        "--theme-bg-color": theme.backgroundColor?.hex || "#f5e1c0",
         "--theme-button-text-color": "#ffffff",
       } as React.CSSProperties);
     }
-  }, [hero]);
+  }, [theme]);
 
-  if (!hero) return null;
+  if (!hero || !theme) return null;
 
   // Default values
   const {
