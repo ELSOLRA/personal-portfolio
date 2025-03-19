@@ -1,3 +1,5 @@
+import ThumbnailPreview from "@/app/components/global/sanity/ThumbnailPreview";
+import React from "react";
 import { defineField, defineType } from "sanity";
 
 export default defineType({
@@ -25,11 +27,20 @@ export default defineType({
     select: {
       title: "title",
       themeName: "activeTheme.title",
+      backgroundColor: "activeTheme.backgroundColor",
+      accentColor: "activeTheme.accentColor",
+      textColor: "activeTheme.textColor",
     },
-    prepare({ title, themeName }) {
+    prepare({ title, themeName, backgroundColor, accentColor, textColor }) {
       return {
         title: title || "Theme Selector",
         subtitle: themeName ? `Active: ${themeName}` : "No theme selected",
+        media: () =>
+          React.createElement(ThumbnailPreview, {
+            backgroundColor,
+            textColor,
+            accentColor,
+          }),
       };
     },
   },
