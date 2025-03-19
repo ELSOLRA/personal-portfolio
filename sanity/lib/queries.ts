@@ -1,8 +1,8 @@
-import { About, Experience, Hero, Project, Skill } from "@/types";
+import { About, Experience, Hero, Project, Skill, Theme } from "@/types";
 import { client } from "./client";
 import { cache } from "react";
 import { groq } from "next-sanity";
-//   groq is optional and more for syntax highlighting
+//   groq here is optional and more for syntax highlighting
 
 // gets all projects, ordered/sorted by publishedAt
 export const getProjects = cache(async (): Promise<Project[]> => {
@@ -142,5 +142,39 @@ export const getHero = cache(async (): Promise<Hero | null> => {
       secondaryButtonUrl,
       layout
     }`
+  );
+});
+
+export const getTheme = cache(async (): Promise<Theme | null> => {
+  return client.fetch(
+    groq`*[_type == "theme"][0] {
+      _id,
+      _type,
+      title,
+      backgroundColor,
+      secondaryBackgroundColor,
+      textColor,
+      secondaryTextColor,
+      accentColor,
+      secondaryAccentColor
+    }`
+  );
+});
+
+export const getActiveTheme = cache(async (): Promise<Theme | null> => {
+  return client.fetch(
+    groq`*[_type == "themeSelector"][0] {
+      "theme": activeTheme-> {
+        _id,
+        _type,
+        title,
+        backgroundColor,
+        secondaryBackgroundColor,
+        textColor,
+        secondaryTextColor,
+        accentColor,
+        secondaryAccentColor
+      }
+    }.theme`
   );
 });

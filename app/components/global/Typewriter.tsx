@@ -4,13 +4,12 @@ import React, { useState, useEffect } from "react";
 
 interface TypewriterTextProps {
   text: string;
-  textColor?: string;
+
   startDelay?: number;
 }
 
 const TypewriterText: React.FC<TypewriterTextProps> = ({
   text,
-  textColor = "#333333",
   startDelay = 0,
 }) => {
   const [displayText, setDisplayText] = useState("");
@@ -64,9 +63,7 @@ const TypewriterText: React.FC<TypewriterTextProps> = ({
     <span className="relative">
       {displayText}
       {currentIndex < text.length && hasStarted && (
-        <span
-          className="inline-block relative w-5 h-0.5 ml-0.5 -mb-0.5 animate-cursor-blink"
-          style={{ backgroundColor: textColor }}></span>
+        <span className="inline-block relative w-5 h-0.5 ml-0.5 -mb-0.5 animate-cursor-blink bg-theme"></span>
       )}
     </span>
   );

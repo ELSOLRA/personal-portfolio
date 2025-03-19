@@ -3,5 +3,15 @@ import experience from "./experience";
 import hero from "./hero";
 import project from "./project";
 import skills from "./skills";
+import theme from "./theme";
+import themeSelector from "./themeSelector";
 
-export const schemaTypes = [about, experience, skills, project, hero];
+export const schemaTypes = [
+  about,
+  experience,
+  skills,
+  project,
+  hero,
+  theme,
+  themeSelector,
+];
