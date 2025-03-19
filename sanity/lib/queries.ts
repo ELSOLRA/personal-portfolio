@@ -178,3 +178,13 @@ export const getActiveTheme = cache(async (): Promise<Theme | null> => {
     }.theme`
   );
 });
+
+export const getSiteElements = cache(async () => {
+  return client.fetch(
+    groq`*[_type == "siteElements"][0] {
+      title,
+      logo,
+      logoMobile
+    }`
+  );
+});

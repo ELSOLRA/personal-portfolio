@@ -1,8 +1,8 @@
-import { getAbout } from "@/sanity/lib/queries";
+import { getSiteElements } from "@/sanity/lib/queries";
 import NavigationClient from "./NavigationClient";
 
 export default async function Navigation() {
-  const about = await getAbout();
+  const elements = await getSiteElements();
 
-  return <NavigationClient about={about} />;
+  return <NavigationClient elements={elements} />;
 }

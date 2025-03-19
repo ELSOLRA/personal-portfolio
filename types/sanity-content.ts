@@ -96,3 +96,11 @@ export interface Experience {
   technologies?: string[];
   order?: number;
 }
+
+export interface SiteElements {
+  _id: string;
+  _type: "siteElements";
+  title?: string;
+  logo?: SanityImage;
+  logoMobile?: SanityImage;
+}

@@ -1,5 +1,9 @@
-import { About, Hero as HeroType } from "./sanity-content";
+import { About, Hero as HeroType, SiteElements } from "./sanity-content";
 import { Theme } from "./sanity-theme";
+
+export interface NavigationClientProps {
+  elements: SiteElements | null;
+}
 
 export interface HeroClientProps {
   hero: HeroType | null;

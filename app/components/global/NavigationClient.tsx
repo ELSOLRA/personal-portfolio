@@ -4,14 +4,10 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { About } from "@/types";
+import { NavigationClientProps } from "@/types";
 import { urlForImage } from "@/sanity/lib/image";
 
-interface NavigationClientProps {
-  about: About | null;
-}
-
-export default function NavigationClient({ about }: NavigationClientProps) {
+export default function NavigationClient({ elements }: NavigationClientProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -35,10 +31,10 @@ export default function NavigationClient({ about }: NavigationClientProps) {
       <div className=" mx-auto flex justify-between items-center h-16 px-4 sm:px-6 lg:px-8 ">
         <div className="flex-shrink-0">
           <Link href="/" className="inline-block">
-            {about?.profileImage && (
+            {elements?.logo && (
               <Image
-                src={urlForImage(about.profileImage).url()}
-                alt={about?.name || "Logo"}
+                src={urlForImage(elements.logo).url()}
+                alt={elements?.title || "Logo"}
                 width={48}
                 height={48}
                 className="h-10 w-auto object-cover mt-auto pt-2 pb-2"

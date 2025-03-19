@@ -21,13 +21,15 @@ export default defineConfig({
     newDocumentOptions: (prev, { creationContext }) => {
       if (creationContext.type === "global") {
         return prev.filter(
-          (templateItem) => templateItem.templateId != "settings"
+          (templateItem) =>
+            templateItem.templateId != "themeSelector" &&
+            templateItem.templateId !== "siteElements"
         );
       }
       return prev;
     },
     actions: (prev, { schemaType }) => {
-      if (schemaType === "settings") {
+      if (schemaType === "themeSelector" || schemaType === "siteElements") {
         return prev.filter(({ action }) => {
           // a type guard to check if action is defined
           return (
