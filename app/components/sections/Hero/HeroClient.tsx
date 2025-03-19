@@ -3,16 +3,10 @@
 import { urlForImage } from "@/sanity/lib/image";
 import Image from "next/image";
 import Link from "next/link";
-import { About, Hero as HeroType, Theme } from "@/types";
-import TypewriterText from "../global/Typewriter";
+import { HeroClientProps } from "@/types";
+import TypewriterText from "../../global/Typewriter";
 import { useTheme } from "@/app/context/ThemeContext";
 import { useEffect } from "react";
-
-interface HeroClientProps {
-  hero: HeroType | null;
-  about: About | null;
-  theme: Theme | null;
-}
 
 export default function HeroClient({ hero, about, theme }: HeroClientProps) {
   const { themeStyles, setTheme } = useTheme();
