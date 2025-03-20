@@ -7,6 +7,7 @@ import { HeroClientProps } from "@/types";
 import TypewriterText from "../../global/Typewriter";
 import { useTheme } from "@/app/context/ThemeContext";
 import { useEffect } from "react";
+import { useThemeSetter } from "@/hooks/useThemeSetter";
 
 export default function HeroClient({
   hero,
@@ -14,22 +15,9 @@ export default function HeroClient({
   theme,
   elements,
 }: HeroClientProps) {
-  const { themeStyles, setTheme } = useTheme();
-
-  // Updates theme when component mounts or theme changes
-  useEffect(() => {
-    if (theme) {
-      setTheme({
-        "--theme-text-color": theme.textColor?.hex || "#333333",
-        "--theme-accent-color": theme.accentColor?.hex || "#48acda",
-        "--theme-bg-color": theme.backgroundColor?.hex || "#f5e1c0",
-        "--theme-button-text-color": "#ffffff",
-      } as React.CSSProperties);
-    }
-  }, [theme]);
+  useThemeSetter(theme);
 
   if (!hero || !theme || !elements) return null;
-  console.log("Elements data:", elements);
 
   // Default values
   const {
