@@ -58,6 +58,7 @@ export default async function RootLayout({
         <div className="flex flex-col min-h-screen">
           <ThemeProvider initialTheme={initialTheme}>
             <Navigation />
+
             <main className="flex-grow">{children}</main>
           </ThemeProvider>
         </div>

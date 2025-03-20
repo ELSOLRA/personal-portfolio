@@ -38,16 +38,18 @@ export default function AboutClient({ about, theme }: AboutClientProps) {
   } = about;
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row bg-theme-bg">
+    <div
+      id="about-section"
+      className="min-h-[100vh] flex flex-col md:flex-row bg-theme-bg">
       {/* Image Section - Left Side */}
-      <div className="w-full md:w-2/5 flex items-center justify-center">
-        <div className="w-60 h-60 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-lg overflow-hidden m-8">
+      <div className="w-full md:w-2/5 flex md:justify-end justify-center items-center   max-w-7xl">
+        <div className="w-60 h-60 md:w-78 md:h-78 lg:w-96 lg:h-96 rounded-lg overflow-hidden m-8">
           {profileImage ? (
             <Image
               src={urlForImage(profileImage).url()}
               alt={profileImage.alt || `Photo of ${name}`}
-              width={320}
-              height={320}
+              width={384}
+              height={384}
               className="object-cover w-full h-full"
               priority
             />
@@ -60,7 +62,7 @@ export default function AboutClient({ about, theme }: AboutClientProps) {
       </div>
 
       {/* Content Section - Right Side */}
-      <div className="w-full md:w-3/5 flex items-center justify-center p-8 md:p-12">
+      <div className="w-full md:w-3/5 flex items-center justify-start p-8 md:p-12 lg:pl-0 ">
         <div className="max-w-2xl w-full">
           <h2 className="text-2xl font-medium text-theme-accent mb-1">
             About Me
