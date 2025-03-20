@@ -1,5 +1,5 @@
 import React from "react";
-import { ThumbnailPreviewProps } from "./Types";
+import { ThumbnailPreviewProps } from "@/types";
 
 const ThumbnailPreview = (props: ThumbnailPreviewProps) => {
   const bg = props.backgroundColor?.hex || "#ffffff";

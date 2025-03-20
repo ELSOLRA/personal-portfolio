@@ -1,7 +1,8 @@
 import Image from "next/image";
 import SanityTest from "@/app/sanity-test";
 import Navigation from "./components/global/Navigation";
-import Hero from "./components/sections/Hero";
+import Hero from "./components/sections/Hero/Hero";
+import About from "./components/sections/About/About";
 
 export default function Home() {
   return (
@@ -105,6 +106,7 @@ export default function Home() {
     // </div>
     <>
       <Hero />
+      <About />
     </>
   );
 }

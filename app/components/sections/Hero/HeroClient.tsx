@@ -3,33 +3,21 @@
 import { urlForImage } from "@/sanity/lib/image";
 import Image from "next/image";
 import Link from "next/link";
-import { About, Hero as HeroType, Theme } from "@/types";
-import TypewriterText from "../global/Typewriter";
+import { HeroClientProps } from "@/types";
+import TypewriterText from "../../global/Typewriter";
 import { useTheme } from "@/app/context/ThemeContext";
 import { useEffect } from "react";
+import { useThemeSetter } from "@/hooks/useThemeSetter";
 
-interface HeroClientProps {
-  hero: HeroType | null;
-  about: About | null;
-  theme: Theme | null;
-}
+export default function HeroClient({
+  hero,
+  about,
+  theme,
+  elements,
+}: HeroClientProps) {
+  useThemeSetter(theme);
 
-export default function HeroClient({ hero, about, theme }: HeroClientProps) {
-  const { themeStyles, setTheme } = useTheme();
-
-  // Updates theme when component mounts or theme changes
-  useEffect(() => {
-    if (theme) {
-      setTheme({
-        "--theme-text-color": theme.textColor?.hex || "#333333",
-        "--theme-accent-color": theme.accentColor?.hex || "#48acda",
-        "--theme-bg-color": theme.backgroundColor?.hex || "#f5e1c0",
-        "--theme-button-text-color": "#ffffff",
-      } as React.CSSProperties);
-    }
-  }, [theme]);
-
-  if (!hero || !theme) return null;
+  if (!hero || !theme || !elements) return null;
 
   // Default values
   const {
@@ -38,12 +26,15 @@ export default function HeroClient({ hero, about, theme }: HeroClientProps) {
     description = "Welcome to my portfolio website",
     mainImage,
     logo,
-    primaryButtonText = "View My Work",
-    primaryButtonUrl = "/projects",
-    secondaryButtonText = "Contact Me",
-    secondaryButtonUrl = "/contact",
     layout = "split-right",
   } = hero;
+
+  const {
+    primaryButtonText = "View My Work",
+    primaryButtonUrl = "/projects",
+    secondaryButtonText = "Contact",
+    secondaryButtonUrl = "/contact",
+  } = elements;
 
   //  Layout classes based on selected layout
   const isImageLeft = layout === "split-left";
@@ -96,7 +87,7 @@ export default function HeroClient({ hero, about, theme }: HeroClientProps) {
           <div className="mt-8 flex gap-4 justify-center">
             <Link
               href={primaryButtonUrl}
-              className="px-6 py-3 rounded-lg transition-colors text-center bg-theme-accent text-theme-button-text">
+              className="px-6 py-3 rounded-lg transition-colors text-center bg-theme-accent text-theme-secondary-text hover:opacity-90">
               {primaryButtonText}
             </Link>
             <Link
@@ -157,7 +148,7 @@ export default function HeroClient({ hero, about, theme }: HeroClientProps) {
           <div className="mt-8 flex gap-4 justify-center">
             <Link
               href={primaryButtonUrl}
-              className="px-6 py-3 rounded-lg transition-colors text-center bg-theme-accent text-theme-button-text">
+              className="px-6 py-3 rounded-lg transition-colors text-center bg-theme-accent text-theme-secondary-text hover:opacity-90">
               {primaryButtonText}
             </Link>
             <Link
@@ -230,7 +221,7 @@ export default function HeroClient({ hero, about, theme }: HeroClientProps) {
             <div className="mt-6 flex gap-4">
               <Link
                 href={primaryButtonUrl}
-                className="px-5 py-2 rounded-lg transition-colors text-center bg-theme-accent text-theme-button-text">
+                className="px-5 py-2 rounded-lg transition-colors text-center bg-theme-accent text-theme-secondary-text hover:opacity-90">
                 {primaryButtonText}
               </Link>
               <Link
@@ -298,7 +289,7 @@ export default function HeroClient({ hero, about, theme }: HeroClientProps) {
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
             <Link
               href={primaryButtonUrl}
-              className="px-5 py-2 rounded-lg transition-colors text-center bg-theme-accent text-theme-button-text">
+              className="px-5 py-2 rounded-lg transition-colors text-center bg-theme-accent text-theme-button-text hover:opacity-90">
               {primaryButtonText}
             </Link>
             <Link

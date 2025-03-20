@@ -4,9 +4,18 @@
   --background: #ffffff;
   --foreground: #171717;
 
+  /* Primary theme colors */
   --theme-text-color: #0145A1;
   --theme-accent-color: #0145A1;
   --theme-bg-color: #AC9D80;
+
+  /* Secondary theme colors */
+  --theme-secondary-text-color: #333333;
+  --theme-secondary-accent-color: #2A6FB8;
+  --theme-secondary-bg-color: #D8CBAD;
+
+  /* default Button text color*/
+  --theme-button-text-color: #ffffff;
 }
 
 @theme {
@@ -16,10 +25,15 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
-
+  /* Primary theme colors */
   --color-theme: var(--theme-text-color);
   --color-theme-accent: var(--theme-accent-color);
   --color-theme-bg: var(--theme-bg-color);
+
+  /* Secondary theme colors */
+  --color-theme-secondary-text: var(--theme-secondary-text-color);
+  --color-theme-secondary-accent: var(--theme-secondary-accent-color);
+  --color-theme-secondary-bg: var(--theme-secondary-bg-color);
 }
 
 @media (prefers-color-scheme: dark) {

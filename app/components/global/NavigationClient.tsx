@@ -4,22 +4,25 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { About } from "@/types";
+import { NavigationClientProps } from "@/types";
 import { urlForImage } from "@/sanity/lib/image";
 
-interface NavigationClientProps {
-  about: About | null;
-}
-
-export default function NavigationClient({ about }: NavigationClientProps) {
+export default function NavigationClient({ elements }: NavigationClientProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Handle scroll event for sticky header
+  // scroll event for sticky header
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100);
+      // About component's position
+      const aboutSection = document.getElementById("about-section");
+      if (aboutSection) {
+        const aboutPosition = aboutSection.getBoundingClientRect().top;
+        // Show nav when About section is at top of viewport or above
+        setIsScrolled(aboutPosition <= 10);
+      }
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -31,14 +34,18 @@ export default function NavigationClient({ about }: NavigationClientProps) {
 
   return (
     <header
-      className={`absolute top-3.5 w-full z-50 transition-all duration-300 mt-4 ${isScrolled ? "bg-gray-900/90 backdrop-blur-sm shadow-md" : "bg-white"}`}>
+      className={`w-[95%] z-50 transition-all duration-300 ease-in-out ${
+        isScrolled
+          ? "fixed w-full top-0 bg-gray-900/90 backdrop-blur-sm shadow-md"
+          : "absolute top-4  left-[2.5%] bg-white"
+      }`}>
       <div className=" mx-auto flex justify-between items-center h-16 px-4 sm:px-6 lg:px-8 ">
         <div className="flex-shrink-0">
           <Link href="/" className="inline-block">
-            {about?.profileImage && (
+            {elements?.logo && (
               <Image
-                src={urlForImage(about.profileImage).url()}
-                alt={about?.name || "Logo"}
+                src={urlForImage(elements.logo).url()}
+                alt={elements?.title || "Logo"}
                 width={48}
                 height={48}
                 className="h-10 w-auto object-cover mt-auto pt-2 pb-2"
