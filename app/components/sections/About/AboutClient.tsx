@@ -5,24 +5,40 @@ import { urlForImage } from "@/sanity/lib/image";
 import { AboutClientProps } from "@/types";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect } from "react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import {
+  FaMapMarkerAlt,
+  FaGithub,
+  FaLinkedin,
+  FaEnvelope,
+} from "react-icons/fa";
 
-export default function AboutClient({ about, theme }: AboutClientProps) {
+export default function AboutClient({
+  about,
+  theme,
+  elements,
+}: AboutClientProps) {
   const { themeStyles, setTheme } = useTheme();
 
   useEffect(() => {
     if (theme) {
       setTheme({
-        "--theme-text-color": theme.textColor?.hex || "#333333",
+        "--theme-text-color": theme.textColor?.hex || "#0145A1",
         "--theme-accent-color": theme.accentColor?.hex || "#48acda",
         "--theme-bg-color": theme.backgroundColor?.hex || "#f5e1c0",
+        "--theme-secondary-text-color":
+          theme.secondaryTextColor?.hex || "#555555",
+        "--theme-secondary-accent-color":
+          theme.secondaryAccentColor?.hex || "#2A6FB8",
+        "--theme-secondary-bg-color":
+          theme.secondaryBackgroundColor?.hex || "#D8CBAD",
         "--theme-button-text-color": "#ffffff",
       } as React.CSSProperties);
     }
   }, [theme]);
 
-  if (!about || !theme) return null;
+  if (!about || !theme || !elements) return null;
 
   // default values
   const {
@@ -42,8 +58,8 @@ export default function AboutClient({ about, theme }: AboutClientProps) {
       id="about-section"
       className="min-h-[100vh] flex flex-col md:flex-row bg-theme-bg">
       {/* Image Section - Left Side */}
-      <div className="w-full md:w-2/5 flex md:justify-end justify-center items-center   max-w-7xl">
-        <div className="w-60 h-60 md:w-78 md:h-78 lg:w-96 lg:h-96 rounded-lg overflow-hidden m-8">
+      <div className="w-full md:w-2/5 flex md:justify-end justify-start items-center   max-w-7xl">
+        <div className="w-70 h-70 md:w-78 md:h-78 lg:w-96 lg:h-96 rounded-lg overflow-hidden mt-20 mx-8 mb-2 md:m-8 ">
           {profileImage ? (
             <Image
               src={urlForImage(profileImage).url()}
@@ -79,52 +95,22 @@ export default function AboutClient({ about, theme }: AboutClientProps) {
 
           {/* Full Bio */}
           {fullBio && (
-            <div className="text-theme opacity-80 prose prose-lg max-w-none mb-8">
+            <div className="text-theme opacity-80 prose prose-lg max-w-none mb-6">
               <PortableText value={fullBio} />
             </div>
           )}
 
           {/* Location and Contact Info */}
-          <div className="flex flex-wrap gap-y-2 mb-8">
+          <div className="flex flex-wrap gap-y-2 mb-6">
             {location && (
               <div className="w-full md:w-1/2 flex items-center gap-2 text-theme opacity-80">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                </svg>
+                <FaMapMarkerAlt className="h-5 w-5" />
                 <span>{location}</span>
               </div>
             )}
             {email && (
               <div className="w-full md:w-1/2 flex items-center gap-2 text-theme opacity-80">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
+                <FaEnvelope className="h-5 w-5" />
                 <a
                   href={`mailto:${email}`}
                   className="hover:text-theme-accent transition-colors">
@@ -135,25 +121,35 @@ export default function AboutClient({ about, theme }: AboutClientProps) {
           </div>
 
           {/* Social Media Links */}
-          <div className="flex gap-4 mb-8">
-            {socialLinks?.github && (
-              <a
-                href={socialLinks.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-theme hover:text-theme-accent transition-colors">
-                <FaGithub size={28} />
-              </a>
-            )}
-            {socialLinks?.linkedin && (
-              <a
-                href={socialLinks.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-theme hover:text-theme-accent transition-colors">
-                <FaLinkedin size={28} />
-              </a>
-            )}
+          <div className="flex flex-row gap-4 items-center mb-4">
+            {/* More about me button */}
+            <div className="">
+              <Link
+                href="/about-test"
+                className="inline-block px-6 py-3 rounded-lg bg-theme-accent text-theme-secondary-text hover:opacity-70 transition-colors">
+                MORE ABOUT ME
+              </Link>
+            </div>
+            <div className="flex gap-4  justify-center">
+              {socialLinks?.github && (
+                <a
+                  href={socialLinks.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-theme hover:text-theme-accent transition-colors">
+                  <FaGithub size={28} />
+                </a>
+              )}
+              {socialLinks?.linkedin && (
+                <a
+                  href={socialLinks.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-theme hover:text-theme-accent transition-colors">
+                  <FaLinkedin size={28} />
+                </a>
+              )}
+            </div>
           </div>
 
           {/* Resume Download Button only for testing, going to remove if not needed */}

@@ -9,7 +9,7 @@ export interface Hero {
   description?: string;
   mainImage?: SanityImage;
   logo?: SanityImage;
-  backgroundColor?: {
+  /*   backgroundColor?: {
     hex: string;
     alpha?: number;
   };
@@ -20,11 +20,7 @@ export interface Hero {
   accentColor?: {
     hex: string;
     alpha?: number;
-  };
-  primaryButtonText?: string;
-  primaryButtonUrl?: string;
-  secondaryButtonText?: string;
-  secondaryButtonUrl?: string;
+  }; */
   layout?: "split-right" | "split-left" | "overlay" | "minimal";
 }
 
@@ -103,4 +99,8 @@ export interface SiteElements {
   title?: string;
   logo?: SanityImage;
   logoMobile?: SanityImage;
+  primaryButtonText?: string;
+  primaryButtonUrl?: string;
+  secondaryButtonText?: string;
+  secondaryButtonUrl?: string;
 }

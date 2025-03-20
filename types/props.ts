@@ -9,11 +9,13 @@ export interface HeroClientProps {
   hero: HeroType | null;
   about?: About | null;
   theme: Theme | null;
+  elements: SiteElements | null;
 }
 
 export interface AboutClientProps {
   about: About | null;
   theme: Theme | null;
+  elements: SiteElements | null;
 }
 
 export interface PageProps {

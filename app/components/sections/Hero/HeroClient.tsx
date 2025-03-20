@@ -8,7 +8,12 @@ import TypewriterText from "../../global/Typewriter";
 import { useTheme } from "@/app/context/ThemeContext";
 import { useEffect } from "react";
 
-export default function HeroClient({ hero, about, theme }: HeroClientProps) {
+export default function HeroClient({
+  hero,
+  about,
+  theme,
+  elements,
+}: HeroClientProps) {
   const { themeStyles, setTheme } = useTheme();
 
   // Updates theme when component mounts or theme changes
@@ -23,7 +28,8 @@ export default function HeroClient({ hero, about, theme }: HeroClientProps) {
     }
   }, [theme]);
 
-  if (!hero || !theme) return null;
+  if (!hero || !theme || !elements) return null;
+  console.log("Elements data:", elements);
 
   // Default values
   const {
@@ -32,12 +38,15 @@ export default function HeroClient({ hero, about, theme }: HeroClientProps) {
     description = "Welcome to my portfolio website",
     mainImage,
     logo,
-    primaryButtonText = "View My Work",
-    primaryButtonUrl = "/projects",
-    secondaryButtonText = "Contact Me",
-    secondaryButtonUrl = "/contact",
     layout = "split-right",
   } = hero;
+
+  const {
+    primaryButtonText = "View My Work",
+    primaryButtonUrl = "/projects",
+    secondaryButtonText = "Contact",
+    secondaryButtonUrl = "/contact",
+  } = elements;
 
   //  Layout classes based on selected layout
   const isImageLeft = layout === "split-left";
@@ -90,7 +99,7 @@ export default function HeroClient({ hero, about, theme }: HeroClientProps) {
           <div className="mt-8 flex gap-4 justify-center">
             <Link
               href={primaryButtonUrl}
-              className="px-6 py-3 rounded-lg transition-colors text-center bg-theme-accent text-theme-button-text">
+              className="px-6 py-3 rounded-lg transition-colors text-center bg-theme-accent text-theme-secondary-text hover:opacity-90">
               {primaryButtonText}
             </Link>
             <Link
@@ -151,7 +160,7 @@ export default function HeroClient({ hero, about, theme }: HeroClientProps) {
           <div className="mt-8 flex gap-4 justify-center">
             <Link
               href={primaryButtonUrl}
-              className="px-6 py-3 rounded-lg transition-colors text-center bg-theme-accent text-theme-button-text">
+              className="px-6 py-3 rounded-lg transition-colors text-center bg-theme-accent text-theme-secondary-text hover:opacity-90">
               {primaryButtonText}
             </Link>
             <Link
@@ -224,7 +233,7 @@ export default function HeroClient({ hero, about, theme }: HeroClientProps) {
             <div className="mt-6 flex gap-4">
               <Link
                 href={primaryButtonUrl}
-                className="px-5 py-2 rounded-lg transition-colors text-center bg-theme-accent text-theme-button-text">
+                className="px-5 py-2 rounded-lg transition-colors text-center bg-theme-accent text-theme-secondary-text hover:opacity-90">
                 {primaryButtonText}
               </Link>
               <Link
@@ -292,7 +301,7 @@ export default function HeroClient({ hero, about, theme }: HeroClientProps) {
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
             <Link
               href={primaryButtonUrl}
-              className="px-5 py-2 rounded-lg transition-colors text-center bg-theme-accent text-theme-button-text">
+              className="px-5 py-2 rounded-lg transition-colors text-center bg-theme-accent text-theme-button-text hover:opacity-90">
               {primaryButtonText}
             </Link>
             <Link

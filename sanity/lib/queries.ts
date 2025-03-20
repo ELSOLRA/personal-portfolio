@@ -133,13 +133,6 @@ export const getHero = cache(async (): Promise<Hero | null> => {
       description,
       mainImage,
       logo,
-      backgroundColor,
-      textColor,
-      accentColor,
-      primaryButtonText,
-      primaryButtonUrl,
-      secondaryButtonText,
-      secondaryButtonUrl,
       layout
     }`
   );
@@ -184,7 +177,12 @@ export const getSiteElements = cache(async () => {
     groq`*[_type == "siteElements"][0] {
       title,
       logo,
-      logoMobile
+      logoMobile,
+      primaryButtonText,
+      primaryButtonUrl,
+      secondaryButtonText,
+      secondaryButtonUrl
+      
     }`
   );
 });

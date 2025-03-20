@@ -36,5 +36,29 @@ export default defineType({
         hotspot: true,
       },
     }),
+    defineField({
+      name: "primaryButtonText",
+      title: "Primary Button Text",
+      type: "string",
+      initialValue: "View My Work",
+    }),
+    defineField({
+      name: "primaryButtonUrl",
+      title: "Primary Button URL",
+      type: "string",
+      initialValue: "/projects",
+    }),
+    defineField({
+      name: "secondaryButtonText",
+      title: "Secondary Button Text",
+      type: "string",
+      initialValue: "Contact Me",
+    }),
+    defineField({
+      name: "secondaryButtonUrl",
+      title: "Secondary Button URL",
+      type: "string",
+      initialValue: "/contact",
+    }),
   ],
 });
