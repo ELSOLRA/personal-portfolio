@@ -1,6 +1,6 @@
 import Image from "next/image";
 import SanityTest from "@/app/sanity-test";
-import Navigation from "./components/global/Navigation";
+import Navigation from "./components/global/navigation/Navigation";
 import Hero from "./components/sections/hero/Hero";
 import About from "./components/sections/about/About";
 import ProjectPage from "./components/project/Project";

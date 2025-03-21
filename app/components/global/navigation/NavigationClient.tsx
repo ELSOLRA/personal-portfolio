@@ -62,13 +62,13 @@ export default function NavigationClient({
             <div className="inline-flex items-center">
               <Image
                 src={urlForImage(elements?.logoSecondary)
-                  .width(36)
-                  .height(22)
+                  .width(32)
+                  .height(18)
                   .url()}
                 alt="Logo"
-                width={36}
-                height={22}
-                className="h-8 w-auto"
+                width={32}
+                height={18}
+                className="h-6 w-auto"
               />
             </div>
           )}
