@@ -6,10 +6,16 @@ import Link from "next/link";
 import Image from "next/image";
 import { NavigationClientProps } from "@/types";
 import { urlForImage } from "@/sanity/lib/image";
+import { useThemeSetter } from "@/hooks/useThemeSetter";
 
-export default function NavigationClient({ elements }: NavigationClientProps) {
+export default function NavigationClient({
+  elements,
+  theme,
+}: NavigationClientProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+
+  useThemeSetter(theme);
 
   // scroll event for sticky header
   useEffect(() => {
@@ -19,7 +25,7 @@ export default function NavigationClient({ elements }: NavigationClientProps) {
       if (aboutSection) {
         const aboutPosition = aboutSection.getBoundingClientRect().top;
         // Show nav when About section is at top of viewport or above
-        setIsScrolled(aboutPosition <= 10);
+        setIsScrolled(aboutPosition <= 50);
       }
     };
 
@@ -36,29 +42,36 @@ export default function NavigationClient({ elements }: NavigationClientProps) {
     <header
       className={`w-[95%] z-50 transition-all duration-300 ease-in-out ${
         isScrolled
-          ? "fixed w-full top-0 bg-gray-900/90 backdrop-blur-sm shadow-md"
-          : "absolute top-4  left-[2.5%] bg-white"
+          ? "fixed w-full top-0 bg-theme-accent/90 backdrop-blur-sm shadow-md"
+          : "absolute top-4  left-[2.5%] bg-theme-accent"
       }`}>
-      <div className=" mx-auto flex justify-between items-center h-16 px-4 sm:px-6 lg:px-8 ">
-        <div className="flex-shrink-0">
-          <Link href="/" className="inline-block">
+      <div className=" mx-auto flex justify-between items-center h-20 px-4 sm:px-6 lg:px-8 ">
+        <div className="flex-shrink-0 flex items-center">
+          <Link href="/" className="inline-block mr-3">
             {elements?.logo && (
               <Image
                 src={urlForImage(elements.logo).url()}
                 alt={elements?.title || "Logo"}
                 width={48}
                 height={48}
-                className="h-10 w-auto object-cover mt-auto pt-2 pb-2"
+                className="h-12 w-auto object-cover"
               />
             )}
           </Link>
-          {/*           <Image
-            src="/name1.svg"
-            alt="Logo"
-            width={120}
-            height={40}
-            className="h-10 w-auto"
-          /> */}
+          {elements?.logoSecondary && (
+            <div className="inline-flex items-center">
+              <Image
+                src={urlForImage(elements?.logoSecondary)
+                  .width(36)
+                  .height(22)
+                  .url()}
+                alt="Logo"
+                width={36}
+                height={22}
+                className="h-8 w-auto"
+              />
+            </div>
+          )}
         </div>
 
         <div className="block sm:hidden">
