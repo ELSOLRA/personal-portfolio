@@ -28,6 +28,15 @@ export default defineType({
       ],
     }),
     defineField({
+      name: "logoSecondary",
+      title: "Logo (Optional)",
+      type: "image",
+      description: "Add a logo to display in component",
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
       name: "logoMobile",
       title: "Mobile Logo (Optional)",
       type: "image",

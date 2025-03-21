@@ -98,6 +98,7 @@ export interface SiteElements {
   _type: "siteElements";
   title?: string;
   logo?: SanityImage;
+  logoSecondary?: SanityImage;
   logoMobile?: SanityImage;
   primaryButtonText?: string;
   primaryButtonUrl?: string;

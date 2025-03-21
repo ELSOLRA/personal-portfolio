@@ -177,6 +177,7 @@ export const getSiteElements = cache(async () => {
     groq`*[_type == "siteElements"][0] {
       title,
       logo,
+      logoSecondary,
       logoMobile,
       primaryButtonText,
       primaryButtonUrl,

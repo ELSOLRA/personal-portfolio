@@ -3,8 +3,9 @@ import {
   getActiveTheme,
   getSiteElements,
 } from "@/sanity/lib/queries";
-import AboutClient from "./AboutClient";
+
 import { About as AboutType, SiteElements, Theme } from "@/types";
+import AboutClient from "./AboutClient";
 
 export default async function About() {
   const about: AboutType | null = await getAbout();
