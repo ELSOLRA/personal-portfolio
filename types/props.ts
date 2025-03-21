@@ -52,3 +52,13 @@ export interface ProjectsListClientProps {
 export interface ProjectPageProps {
   params: Promise<{ slug: string }>;
 }
+
+export interface FooterClientProps {
+  elements: SiteElements | null;
+  theme: Theme | null;
+  socialLinks?: {
+    github?: string;
+    linkedin?: string;
+    [key: string]: string | undefined;
+  };
+}
