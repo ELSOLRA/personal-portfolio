@@ -62,3 +62,7 @@ export interface FooterClientProps {
     [key: string]: string | undefined;
   };
 }
+
+export interface ContactFormProps {
+  theme: Theme | null;
+}
