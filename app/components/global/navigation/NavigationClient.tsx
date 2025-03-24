@@ -7,7 +7,6 @@ import Image from "next/image";
 import { NavigationClientProps } from "@/types";
 import { urlForImage } from "@/sanity/lib/image";
 import { useThemeSetter } from "@/hooks/useThemeSetter";
-import { usePathname } from "next/navigation";
 import { useNavStyles } from "@/hooks/useNavStyles";
 
 export default function NavigationClient({
@@ -40,9 +39,6 @@ export default function NavigationClient({
     setIsMenuOpen(!isMenuOpen);
     document.body.classList.toggle("menu-is-open");
   };
-
-  const pathname = usePathname();
-  const isProjectPage = pathname?.match(/^\/projects\/[^\/]+$/);
 
   return (
     <header
