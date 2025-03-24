@@ -1,10 +1,11 @@
-import { getActiveTheme } from "@/sanity/lib/queries";
+import { getAbout, getActiveTheme } from "@/sanity/lib/queries";
 
-import { Theme } from "@/types";
+import { About, Theme } from "@/types";
 import ContactForm from "./ContactForm";
 
 export default async function Contact() {
   const theme: Theme | null = await getActiveTheme();
+  const about: About | null = await getAbout();
 
-  return <ContactForm theme={theme} />;
+  return <ContactForm theme={theme} about={about} />;
 }

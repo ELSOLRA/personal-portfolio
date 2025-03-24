@@ -109,6 +109,7 @@ export default function Home() {
     // </div>
     <>
       <Hero />
+
       <About />
       <ProjectsList />
       <Contact />

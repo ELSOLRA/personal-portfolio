@@ -65,4 +65,5 @@ export interface FooterClientProps {
 
 export interface ContactFormProps {
   theme: Theme | null;
+  about: About | null;
 }
