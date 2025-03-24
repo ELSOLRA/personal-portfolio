@@ -137,12 +137,12 @@ export default function ContactForm({ theme, about }: ContactFormProps) {
 
       {/* Main container */}
       <div className="relative z-10 max-w-[100rem] mx-auto px-4 flex flex-col md:flex-row items-start justify-center md:-mt-6">
-        <div className="hidden md:block md:w-1/12 lg:w-1/12"></div>
+        {/*     <div className="hidden md:block md:w-1/12 lg:w-1/12"></div> */}
 
         {/* Form container */}
-        <div className="w-full md:w-7/12 lg:w-7/12 xl:w-6/12 max-w-3xl bg-white dark:bg-gray-800 shadow-2xl overflow-hidden mb-8">
-          <div className="p-6">
-            <div className="mb-5">
+        <div className="w-full md:w-7/12 lg:w-7/12 xl:w-7/12 max-w-4xl bg-white dark:bg-gray-800 shadow-2xl overflow-hidden mb-8 ">
+          <div className="p-8">
+            <div className="mb-5 mt-2">
               <h2 className="text-4xl font-bold text-theme-secondary-text mb-2">
                 Get in Touch
               </h2>
@@ -151,8 +151,8 @@ export default function ContactForm({ theme, about }: ContactFormProps) {
               </div>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <form onSubmit={handleSubmit} className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <FormField
                     id="name"
@@ -195,11 +195,11 @@ export default function ContactForm({ theme, about }: ContactFormProps) {
                 />
               </div>
 
-              <div>
+              <div className="mb-2">
                 <button
                   type="submit"
                   disabled={status.submitting}
-                  className="w-full px-6 py-3 bg-theme-accent text-theme-secondary-text rounded-lg hover:bg-opacity-90 transition-colors focus:outline-none focus:ring-2 focus:ring-theme-accent focus:ring-offset-2 disabled:opacity-50">
+                  className="w-4/12 px-6 py-4 text-xl bg-theme-accent text-theme-secondary-text  hover:bg-opacity-90 transition-colors focus:outline-none focus:ring-2 focus:ring-theme-accent focus:ring-offset-2 disabled:opacity-50">
                   {status.submitting ? "Sending..." : "Send Message"}
                 </button>
               </div>
