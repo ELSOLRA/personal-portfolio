@@ -40,7 +40,7 @@ export default function AboutClient({
   return (
     <div
       id="about-section"
-      className="min-h-[80vh] flex flex-col md:flex-row bg-theme-bg">
+      className="min-h-[80vh] flex flex-col md:flex-row bg-theme-bg w-full">
       {/* Image Section - Left Side */}
       <div className="w-full max-w-[100rem] mx-auto flex flex-col md:flex-row">
         <div className="w-full md:w-2/5 flex md:justify-end justify-start items-center   max-w-7xl">

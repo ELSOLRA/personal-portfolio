@@ -17,8 +17,8 @@ export default function ProjectsListClient({
   if (!theme || !elements) return null;
   if (!projects || projects.length === 0) {
     return (
-      <div className="py-20 bg-theme-bg">
-        <div className="container mx-auto px-4 max-w-[100rem]">
+      <div className="py-20 bg-theme-bg w-full">
+        <div className="container mx-auto px-4  max-w-[100rem]">
           <h2 className="text-3xl font-bold text-theme text-center mb-6">
             Projects
           </h2>

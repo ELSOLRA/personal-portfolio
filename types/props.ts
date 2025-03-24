@@ -62,3 +62,20 @@ export interface FooterClientProps {
     [key: string]: string | undefined;
   };
 }
+
+export interface ContactFormProps {
+  theme: Theme | null;
+  about: About | null;
+}
+
+export interface FormFieldProps {
+  id: string;
+  name: string;
+  type?: string;
+  value: string;
+  onChange: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
+  placeholder: string;
+  rows?: number;
+}
