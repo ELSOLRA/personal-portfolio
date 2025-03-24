@@ -1,7 +1,7 @@
 import { getAbout } from "@/sanity/lib/queries";
 import { urlForImage } from "@/sanity/lib/image";
 import Image from "next/image";
-import Navigation from "../components/global/navigation/Navigation";
+import Navigation from "../components/global/navigation";
 
 export default async function AboutTestPage() {
   const about = await getAbout();
