@@ -1,11 +1,11 @@
 import Image from "next/image";
 import SanityTest from "@/app/sanity-test";
-import Navigation from "./components/global/navigation/Navigation";
-import Hero from "./components/sections/hero/Hero";
-import About from "./components/sections/about/About";
-import ProjectPage from "./components/project/Project";
-import ProjectsList from "./components/sections/projectslist/ProjectsList";
-import Contact from "./components/sections/contact";
+import Navigation from "./components/global/navigation";
+import Hero from "@/app/components/sections/hero";
+import About from "@/app/components/sections/about";
+import ProjectPage from "./components/sections/project";
+import ProjectsList from "@/app/components/sections/projectslist";
+import Contact from "@/app/components/sections/contact";
 
 export default function Home() {
   return (

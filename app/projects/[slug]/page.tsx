@@ -1,4 +1,4 @@
-import Project from "@/app/components/project/Project";
+import Project from "@/app/components/sections/project";
 import { ProjectPageProps } from "@/types";
 
 export default function ProjectPage({ params }: ProjectPageProps) {
