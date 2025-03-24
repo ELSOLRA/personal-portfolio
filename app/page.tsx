@@ -5,7 +5,7 @@ import Hero from "./components/sections/hero/Hero";
 import About from "./components/sections/about/About";
 import ProjectPage from "./components/project/Project";
 import ProjectsList from "./components/sections/projectslist/ProjectsList";
-import Contact from "./components/global/contact/Contact";
+import Contact from "./components/sections/contact";
 
 export default function Home() {
   return (
