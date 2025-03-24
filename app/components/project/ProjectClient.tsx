@@ -54,7 +54,7 @@ export default function ProjectClient({
   return (
     <div
       id="project-section"
-      className="min-h-[90vh] flex flex-col md:flex-row bg-theme-bg">
+      className="flex-grow flex flex-col md:flex-row bg-theme-bg">
       {/* Image Section - Left Side */}
       <div className="w-full md:w-2/5 flex md:justify-end justify-start items-center max-w-7xl">
         <div className="w-70 h-70 md:w-85 md:h-85 lg:w-120 lg:h-120 rounded-lg overflow-hidden mt-28 mx-8 mb-2 md:m-8">
