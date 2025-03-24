@@ -60,7 +60,9 @@ export default async function RootLayout({
           <ThemeProvider initialTheme={initialTheme}>
             <Navigation />
 
-            <main className="flex-grow">{children}</main>
+            <main className="flex-grow flex flex-col bg-theme-bg">
+              {children}
+            </main>
             <Footer />
           </ThemeProvider>
         </div>

@@ -7,6 +7,8 @@ import Image from "next/image";
 import { NavigationClientProps } from "@/types";
 import { urlForImage } from "@/sanity/lib/image";
 import { useThemeSetter } from "@/hooks/useThemeSetter";
+import { usePathname } from "next/navigation";
+import { useNavStyles } from "@/hooks/useNavStyles";
 
 export default function NavigationClient({
   elements,
@@ -14,6 +16,7 @@ export default function NavigationClient({
 }: NavigationClientProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { headerClasses } = useNavStyles(isScrolled);
 
   useThemeSetter(theme);
 
@@ -38,13 +41,12 @@ export default function NavigationClient({
     document.body.classList.toggle("menu-is-open");
   };
 
+  const pathname = usePathname();
+  const isProjectPage = pathname?.match(/^\/projects\/[^\/]+$/);
+
   return (
     <header
-      className={`w-[95%] z-50 transition-all duration-300 ease-in-out ${
-        isScrolled
-          ? "fixed w-full top-0 bg-theme-accent/90 backdrop-blur-sm shadow-md"
-          : "absolute top-4  left-[2.5%] bg-theme-accent"
-      }`}>
+      className={`z-50 transition-all duration-300 ease-in-out ${headerClasses}`}>
       <div className=" mx-auto flex justify-between items-center h-20 px-4 sm:px-6 lg:px-8 ">
         <div className="flex-shrink-0 flex items-center">
           <Link href="/" className="inline-block mr-3">
