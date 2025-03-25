@@ -41,7 +41,7 @@ export default function HeroClient({
   const isOverlay = layout === "overlay";
   const isMinimal = layout === "minimal";
 
-  // Overlay and Minimal layouts
+  // Overlay and minimal layouts
   if (isOverlay) {
     return (
       <div className="relative h-screen flex items-center justify-center overflow-hidden">
