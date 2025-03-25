@@ -49,6 +49,7 @@ export interface ProjectsListClientProps {
   projects: Project[];
   theme: Theme | null;
   elements: SiteElements | null;
+  isProjectsPage?: boolean;
 }
 
 export interface ProjectPageProps {

@@ -5,12 +5,17 @@ import {
 } from "@/sanity/lib/queries";
 import ProjectsListClient from "./ProjectsListClient";
 
-export default async function ProjectsList() {
+export default async function ProjectsList({ isProjectsPage = false }) {
   const projects = await getProjects();
   const theme = await getActiveTheme();
   const elements = await getSiteElements();
 
   return (
-    <ProjectsListClient projects={projects} theme={theme} elements={elements} />
+    <ProjectsListClient
+      projects={projects}
+      theme={theme}
+      elements={elements}
+      isProjectsPage={isProjectsPage}
+    />
   );
 }
