@@ -138,7 +138,7 @@ export default function NavigationClient({
             </li>
             <li>
               <Link
-                href="/contact"
+                href="/#contact-form"
                 className="font-medium text-gray-700 hover:text-[#48acda] transition-colors"
                 onClick={() => setIsMenuOpen(false)}>
                 Contact

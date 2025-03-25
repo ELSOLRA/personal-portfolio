@@ -127,7 +127,9 @@ export default function ContactForm({ theme, about }: ContactFormProps) {
   }, [status.message, status.visible]);
 
   return (
-    <section className="relative overflow-hidden md:py-40 p-2">
+    <section
+      id="contact-form"
+      className="relative overflow-hidden md:py-40 p-2">
       {/* Background elements */}
       <div className="absolute inset-0 hidden md:block">
         <div className="absolute top-0 left-0 w-1/2 h-full bg-theme-bg"></div>

@@ -3,6 +3,7 @@ import {
   Hero as HeroType,
   Project,
   SiteElements,
+  Skill,
 } from "./sanity-content";
 import { Theme } from "./sanity-theme";
 
@@ -20,6 +21,7 @@ export interface HeroClientProps {
 
 export interface AboutClientProps {
   about: About | null;
+  skills?: Skill[];
   theme: Theme | null;
   elements: SiteElements | null;
 }
