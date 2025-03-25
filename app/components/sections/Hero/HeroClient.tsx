@@ -87,12 +87,12 @@ export default function HeroClient({
           <div className="mt-8 flex gap-4 justify-center">
             <Link
               href={primaryButtonUrl}
-              className="px-6 py-3 rounded-lg transition-colors text-center bg-theme-accent text-theme-secondary-text hover:opacity-90">
+              className="px-6 py-3 transition-colors text-center bg-theme-accent text-theme-secondary-text hover:opacity-90">
               {primaryButtonText}
             </Link>
             <Link
               href={secondaryButtonUrl}
-              className="px-6 py-3 border rounded-lg hover:bg-white/10 transition-colors text-center border-theme-accent text-theme-accent">
+              className="px-6 py-3 border hover:bg-white/10 transition-colors text-center border-theme-accent text-theme-accent">
               {secondaryButtonText}
             </Link>
           </div>
@@ -148,12 +148,12 @@ export default function HeroClient({
           <div className="mt-8 flex gap-4 justify-center">
             <Link
               href={primaryButtonUrl}
-              className="px-6 py-3 rounded-lg transition-colors text-center bg-theme-accent text-theme-secondary-text hover:opacity-90">
+              className="px-6 py-3 transition-colors text-center bg-theme-accent text-theme-secondary-text hover:opacity-90">
               {primaryButtonText}
             </Link>
             <Link
               href={secondaryButtonUrl}
-              className="px-6 py-3 rounded-lg border-theme-accent text-theme-accent hover:bg-white/10 transition-colors text-center">
+              className="px-6 py-3 border-theme-accent text-theme-accent hover:bg-white/10 transition-colors text-center">
               {secondaryButtonText}
             </Link>
           </div>
@@ -221,12 +221,12 @@ export default function HeroClient({
             <div className="mt-6 flex gap-4">
               <Link
                 href={primaryButtonUrl}
-                className="px-5 py-2 rounded-lg transition-colors text-center bg-theme-accent text-theme-secondary-text hover:opacity-90">
+                className="px-5 py-2 transition-colors text-center bg-theme-accent text-theme-secondary-text hover:opacity-90">
                 {primaryButtonText}
               </Link>
               <Link
                 href={secondaryButtonUrl}
-                className="px-5 py-2 rounded-lg border border-theme-accent text-theme-accent hover:bg-white/10 transition-colors text-center">
+                className="px-5 py-2 border border-theme-accent text-theme-accent hover:bg-white/10 transition-colors text-center">
                 {secondaryButtonText}
               </Link>
             </div>
@@ -289,12 +289,12 @@ export default function HeroClient({
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
             <Link
               href={primaryButtonUrl}
-              className="px-5 py-2 rounded-lg transition-colors text-center bg-theme-accent text-theme-button-text hover:opacity-90">
+              className="px-5 py-2 transition-colors text-center bg-theme-accent text-theme-button-text hover:opacity-90">
               {primaryButtonText}
             </Link>
             <Link
               href={secondaryButtonUrl}
-              className="px-5 py-2 border rounded-lg border-theme-accent text-theme-accent hover:bg-white/10 transition-colors text-center">
+              className="px-5 py-2 border border-theme-accent text-theme-accent hover:bg-white/10 transition-colors text-center">
               {secondaryButtonText}
             </Link>
           </div>

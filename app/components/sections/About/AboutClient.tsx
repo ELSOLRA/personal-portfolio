@@ -7,7 +7,6 @@ import { AboutClientProps } from "@/types";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect } from "react";
 import {
   FaMapMarkerAlt,
   FaGithub,
@@ -44,7 +43,7 @@ export default function AboutClient({
       {/* Image Section - Left Side */}
       <div className="w-full max-w-[100rem] mx-auto flex flex-col md:flex-row">
         <div className="w-full md:w-2/5 flex md:justify-end justify-start items-center   max-w-7xl">
-          <div className="w-70 h-70 md:w-78 md:h-78 lg:w-96 lg:h-96 rounded-lg overflow-hidden mt-20 mx-8 mb-2 md:m-8 ">
+          <div className="w-70 h-70 md:w-78 md:h-78 lg:w-96 lg:h-96 overflow-hidden mt-20 mx-8 mb-2 md:m-8 ">
             {profileImage ? (
               <Image
                 src={urlForImage(profileImage).url()}
@@ -110,8 +109,8 @@ export default function AboutClient({
               {/* More about me button */}
               <div className="">
                 <Link
-                  href="/about-test"
-                  className="inline-block px-6 py-3 rounded-lg bg-theme-accent text-theme-secondary-text hover:opacity-70 transition-colors">
+                  href="/about"
+                  className="inline-block px-6 py-3  bg-theme-accent text-theme-secondary-text hover:opacity-70 transition-colors">
                   MORE ABOUT ME
                 </Link>
               </div>
