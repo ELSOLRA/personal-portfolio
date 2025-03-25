@@ -11,7 +11,13 @@ import {
   FaMapMarkerAlt,
   FaEnvelope,
   FaFileAlt,
+  FaArrowRight,
+  FaLongArrowAltRight,
 } from "react-icons/fa";
+import {
+  PiArrowFatLinesRightBold,
+  PiArrowFatLinesRightThin,
+} from "react-icons/pi";
 
 export default function AboutDetailClient({
   about,
@@ -53,7 +59,7 @@ export default function AboutDetailClient({
     name = "Name",
     role = "Role",
     profileImage,
-    shortBio = "",
+    /*   shortBio = "", */
     fullBio,
     email,
     location,
@@ -68,7 +74,7 @@ export default function AboutDetailClient({
     "languages",
     "frameworks",
     "tools",
-    "soft",
+    "devops",
     "other",
   ];
 
@@ -82,166 +88,186 @@ export default function AboutDetailClient({
     languages: "Programming Languages",
     frameworks: "Frameworks",
     tools: "Tools & Technologies",
-    soft: "Soft Skills",
+    devops: "DevOps & Cloud",
     other: "Other Skills",
   };
 
   return (
     <div className="bg-theme-bg">
-      <div className="container mx-auto px-4 max-w-[100rem] pb-20 pt-30">
-        <div className="flex flex-col lg:flex-row">
-          {/* Left side - profile Image + Bio */}
-          <div className="w-full lg:w-1/2 lg:pr-8">
-            {/* Container for side-by-side layout */}
-            <div className="flex flex-col md:flex-row gap-8">
-              {/* Profile Image */}
-              <div className="md:w-1/2">
-                <div className="w-full h-96 md:h-120 overflow-hidden ">
-                  {profileImage ? (
-                    <Image
-                      src={urlForImage(profileImage).url()}
-                      alt={profileImage.alt || `Photo of ${name}`}
-                      width={320}
-                      height={480}
-                      className="object-cover w-full h-full"
-                      priority
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-gray-200">
-                      <span className="text-gray-400 text-4xl">?</span>
-                    </div>
-                  )}
-                </div>
+      <div className="container mx-auto px-6 max-w-[100rem] pb-20 pt-30">
+        {/* Main title */}
+        <h1 className="text-5xl md:text-6xl font-bold text-theme mb-16  text-center lg:text-left">
+          &lt; About /&gt;
+        </h1>
+
+        {/* Profile image + Full bio*/}
+        <div className="flex flex-col lg:flex-row gap-8 xl:gap-20 mb-16">
+          {/* Profile image */}
+          <div className="w-full lg:w-1/4 self-start lg:self-auto">
+            <div className="relative">
+              {/* Image container */}
+              <div className="w-full h-[28rem] md:h-[32rem] overflow-hidden relative z-10">
+                {profileImage ? (
+                  <Image
+                    src={urlForImage(profileImage).url()}
+                    alt={profileImage.alt || `Photo of ${name}`}
+                    width={320}
+                    height={560}
+                    className="object-cover w-full h-full"
+                    priority
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-gray-200">
+                    <span className="text-gray-400 text-4xl">?</span>
+                  </div>
+                )}
               </div>
 
-              {/* Bio information */}
-              <div className="md:w-1/2">
-                <h1 className="text-4xl md:text-5xl font-bold text-theme mb-4">
-                  {name}
-                </h1>
-                <h2 className="text-2xl md:text-3xl font-medium text-theme-accent mb-6">
-                  {role}
-                </h2>
-                <div className="text-xl text-theme opacity-90 mb-8">
-                  {shortBio}
-                </div>
-
-                {/* Resume */}
-                <div className="flex gap-4 mb-10">
-                  {resumeURL && (
-                    <a
-                      href={resumeURL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-theme-accent text-theme-secondary-text hover:opacity-80 transition-opacity">
-                      <FaFileAlt size={20} />
-                      <span>Resume</span>
-                    </a>
-                  )}
-                </div>
-              </div>
+              {/* Background frame element */}
+              <div
+                className="absolute top-6 -left-1.5 sm:-left-2 -right-1.5 sm:-right-2 lg:-right-4 lg:left-3 
+  border-5 border-gray-400 w-auto h-full z-9 bg-theme/10"></div>
             </div>
 
-            {/* Full Bio */}
-            {fullBio && (
-              <div className="mt-10">
-                <h2 className="text-3xl font-bold text-theme mb-6">
-                  Biography
-                </h2>
-                <div className="prose prose-lg max-w-none text-theme opacity-90">
-                  <PortableText value={fullBio} />
-                </div>
-              </div>
-            )}
+            <h2 className="text-xl md:text-1xl font-medium text-theme-accent mt-8 lg:mt-7 mb-6">
+              #{role ? role.replace(/\s+/g, "") : ""}
+            </h2>
+
+            <div>
+              <a
+                href="/projects"
+                className="w-3/4 inline-flex border-2 border-theme-accent/80 items-center justify-center  gap-2 px-6 py-3 bg-theme-accent/20 text-theme-secondary-text text-lg font-bold hover:opacity-80 transition-opacity group">
+                <span>See my projects</span>
+                <PiArrowFatLinesRightBold
+                  size={22}
+                  className="transform transition-all duration-500 group-hover:translate-x-3"
+                />
+              </a>
+            </div>
           </div>
-          {/* Right side - skills */}
-          <div className="w-full lg:w-1/2 lg:pl-8 mt-10 lg:mt-0">
-            <h2 className="text-3xl font-bold text-theme mb-10">Skills</h2>
 
-            {/* Skill categories */}
-            <div className="space-y-8">
-              {orderedCategories.map((category) => (
-                <div key={category}>
-                  <h3 className="text-2xl font-semibold text-theme-accent mb-6">
-                    {categoryTitles[category]}
-                  </h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 ">
-                    {groupedSkills[category].map((skill) => (
-                      <div
-                        key={skill._id}
-                        className="bg-white/5 p-1  hover:bg-white/10 transition-colors max-w-[250px] ">
-                        <div className="flex items-center gap-2 mb-2">
-                          {/* Logo and title */}
-                          <div className="flex items-center gap-2">
-                            {skill.logo && (
-                              <div className="w-8 h-8 flex-shrink-0 rounded-md overflow-hidden bg-white/10">
-                                <Image
-                                  src={urlForImage(skill.logo)
-                                    .width(80)
-                                    .height(80)
-                                    .url()}
-                                  alt={`${skill.title} logo`}
-                                  width={32}
-                                  height={32}
-                                  className="object-contain w-full h-full"
-                                />
-                              </div>
-                            )}
-                            <h4 className="text-base font-medium text-theme">
-                              {skill.title}
-                            </h4>
-                          </div>
+          {/* Full bio section */}
+          {fullBio && (
+            <div className="w-full lg:w-3/4 flex flex-col justify-center lg:h-120 lg:-mt-12">
+              <h2 className="text-3xl font-bold text-theme mb-6">I'm a</h2>
+              <div className="prose prose-lg max-w-none text-theme opacity-90">
+                <p className="text-xl">
+                  <span>
+                    Hi! My name is{" "}
+                    <span className="font-bold text-theme-secondary-text">
+                      {name}
+                    </span>
+                  </span>{" "}
+                  <span className="inline">
+                    <PortableText
+                      value={fullBio}
+                      components={{
+                        block: {
+                          normal: ({ children }) => <>{children}</>,
+                        },
+                      }}
+                    />
+                  </span>
+                </p>
+              </div>
 
-                          {/* Proficiency bar */}
-                          <div className="flex gap-0.5 ml-auto">
-                            {Array.from({ length: 5 }).map((_, index) => {
-                              const threshold = index * 20;
-                              const nextThreshold = threshold + 20;
+              {/* Resume, using then needed */}
+              <div className="flex gap-4 mt-8">
+                {resumeURL && (
+                  <a
+                    href={resumeURL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-theme-accent text-theme-secondary-text hover:opacity-80 transition-opacity">
+                    <FaFileAlt size={20} />
+                    <span>Resume</span>
+                  </a>
+                )}
+              </div>
+            </div>
+          )}
+        </div>
 
-                              if (skill.proficiency >= nextThreshold) {
-                                return (
-                                  <div
-                                    key={index}
-                                    className="w-5 h-5 rounded-sm bg-theme-accent"></div>
-                                );
-                              }
-                              // half filled square (10% increments)
-                              else if (skill.proficiency >= threshold + 10) {
-                                return (
-                                  <div
-                                    key={index}
-                                    className="w-5 h-5 rounded-sm relative overflow-hidden">
-                                    <div className="absolute inset-0 w-1/2 bg-theme-accent"></div>
-                                    <div className="absolute inset-0 left-1/2 bg-gray-200/20"></div>
-                                  </div>
-                                );
-                              }
-                              //
-                              else {
-                                return (
-                                  <div
-                                    key={index}
-                                    className="w-5 h-5 rounded-sm bg-gray-200/20"></div>
-                                );
-                              }
-                            })}
-                          </div>
+        {/*  Skills section */}
+        <div className="w-full">
+          <h2 className="text-4xl font-bold text-theme mb-10">
+            {" "}
+            &#123; Skills &#125;
+          </h2>
+
+          {/* Categories */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            {orderedCategories.map((category) => (
+              <div key={category} className="flex flex-col">
+                {/* Category header */}
+                <h3 className="text-2xl font-semibold text-theme-accent mb-6 pb-2 border-b border-theme-accent/30">
+                  {categoryTitles[category]}
+                </h3>
+
+                {/* Skills stacked in column */}
+                <div className="flex flex-col gap-4">
+                  {groupedSkills[category].map((skill) => (
+                    <div
+                      key={skill._id}
+                      className="bg-white/5 p-2 hover:bg-white/10 transition-colors">
+                      <div className="flex items-center justify-between gap-2 mb-2">
+                        {/* Logo and title */}
+                        <div className="flex items-center gap-2 min-w-0">
+                          {skill.logo && (
+                            <div className="w-8 h-8 flex-shrink-0 rounded-md overflow-hidden bg-white/10">
+                              <Image
+                                src={urlForImage(skill.logo)
+                                  .width(80)
+                                  .height(80)
+                                  .url()}
+                                alt={`${skill.title} logo`}
+                                width={32}
+                                height={32}
+                                className="object-contain w-full h-full"
+                              />
+                            </div>
+                          )}
+                          <h4 className="text-base font-medium text-theme truncate">
+                            {skill.title}
+                          </h4>
                         </div>
 
-                        {/* Years of experience */}
-                        {skill.yearsOfExperience !== undefined && (
-                          <div className="text-sm text-theme-accent">
-                            {skill.yearsOfExperience}{" "}
-                            {skill.yearsOfExperience === 1 ? "year" : "years"}{" "}
-                            of experience
-                          </div>
-                        )}
+                        {/* Proficiency bar */}
+                        <div className="flex gap-0.5 flex-shrink-0">
+                          {Array.from({ length: 5 }).map((_, index) => {
+                            const threshold = index * 20;
+                            const nextThreshold = threshold + 20;
+
+                            if (skill.proficiency >= nextThreshold) {
+                              return (
+                                <div
+                                  key={index}
+                                  className="w-4 h-4 md:w-5 md:h-5 rounded-sm bg-theme-accent"></div>
+                              );
+                            } else if (skill.proficiency >= threshold + 10) {
+                              return (
+                                <div
+                                  key={index}
+                                  className="w-4 h-4 md:w-5 md:h-5 rounded-sm relative overflow-hidden">
+                                  <div className="absolute inset-0 w-1/2 bg-theme-accent"></div>
+                                  <div className="absolute inset-0 left-1/2 bg-gray-200/20"></div>
+                                </div>
+                              );
+                            } else {
+                              return (
+                                <div
+                                  key={index}
+                                  className="w-4 h-4 md:w-5 md:h-5 rounded-sm bg-gray-200/20"></div>
+                              );
+                            }
+                          })}
+                        </div>
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

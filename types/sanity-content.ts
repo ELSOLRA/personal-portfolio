@@ -70,7 +70,7 @@ export interface Skill {
     | "languages"
     | "frameworks"
     | "tools"
-    | "soft"
+    | "devops"
     | "other";
   proficiency: number;
   logo?: SanityImage;

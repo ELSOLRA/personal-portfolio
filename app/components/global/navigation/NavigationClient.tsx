@@ -117,7 +117,7 @@ export default function NavigationClient({
                 href="/"
                 className="font-medium text-gray-700 hover:text-[#48acda] transition-colors"
                 onClick={() => setIsMenuOpen(false)}>
-                Intro
+                Home
               </Link>
             </li>
             <li>
@@ -133,7 +133,7 @@ export default function NavigationClient({
                 href="/projects"
                 className="font-medium text-gray-700 hover:text-[#48acda] transition-colors"
                 onClick={() => setIsMenuOpen(false)}>
-                Works
+                Projects
               </Link>
             </li>
             <li>

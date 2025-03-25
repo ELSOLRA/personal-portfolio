@@ -22,7 +22,7 @@ export default defineType({
           { title: "Languages", value: "languages" },
           { title: "Frameworks", value: "frameworks" },
           { title: "Tools", value: "tools" },
-          { title: "Soft Skills", value: "soft" },
+          { title: "DevOps", value: "devops" },
           { title: "Other", value: "other" },
         ],
       },
