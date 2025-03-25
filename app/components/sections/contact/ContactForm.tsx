@@ -129,10 +129,10 @@ export default function ContactForm({ theme, about }: ContactFormProps) {
   return (
     <section
       id="contact-form"
-      className="relative overflow-hidden md:py-40 p-2">
+      className="relative overflow-hidden py-20 md:py-50 p-2">
       {/* Background elements */}
       <div className="absolute inset-0 hidden md:block">
-        <div className="absolute top-0 left-0 w-1/2 h-full bg-theme-bg"></div>
+        <div className="absolute top-0 left-0 w-1/2 h-full bg-theme-secondary-accent"></div>
         <div className="absolute top-0 right-0 w-1/2 h-full bg-theme-accent"></div>
       </div>
       <div className="absolute inset-0 md:hidden bg-gradient-to-b from-theme-bg to-theme-accent/10"></div>

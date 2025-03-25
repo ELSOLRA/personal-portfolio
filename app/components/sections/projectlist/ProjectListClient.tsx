@@ -110,12 +110,17 @@ export default function ProjectListClient({
   return (
     <section
       id="projects"
-      className={`py-40 ${!isProjectsPage ? "pb-48" : ""} bg-theme-bg`}>
+      className={`${isProjectsPage ? "py-40" : "py-25 md:py-50"} bg-theme-bg`}>
       <div className="container mx-auto px-4 max-w-[100rem]">
-        <h2 className="text-3xl font-bold text-theme text-center mb-2">
-          Projects
-        </h2>
-        <p className="text-lg text-theme opacity-80 text-center mb-12">
+        <div className="w-full text-center mb-12">
+          <div className="relative inline-block">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-theme-accent mb-6">
+              My Projects
+            </h2>
+            <div className="absolute  left-1/2 transform -translate-x-1/2 w-[120%] h-1 bg-theme-accent"></div>
+          </div>
+        </div>
+        <p className="text-3xl text-theme opacity-80 text-center mb-12">
           Check out some of my recent work
         </p>
 
