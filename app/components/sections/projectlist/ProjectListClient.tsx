@@ -2,18 +2,18 @@
 
 import { useThemeSetter } from "@/hooks/useThemeSetter";
 import { urlForImage } from "@/sanity/lib/image";
-import { Project, ProjectsListClientProps } from "@/types";
+import { Project, ProjectListClientProps } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 import { FaGithub, FaExternalLinkAlt, FaLink } from "react-icons/fa";
 import { PiArrowFatLinesRightBold } from "react-icons/pi";
 
-export default function ProjectsListClient({
+export default function ProjectListClient({
   projects,
   theme,
   elements,
   isProjectsPage = false,
-}: ProjectsListClientProps) {
+}: ProjectListClientProps) {
   useThemeSetter(theme);
 
   if (!theme || !elements) return null;

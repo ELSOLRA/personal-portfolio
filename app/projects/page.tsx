@@ -1,5 +1,5 @@
-import ProjectsList from "../components/sections/projectslist";
+import ProjectList from "../components/sections/projectlist";
 
 export default function ProjectsPage() {
-  return <ProjectsList isProjectsPage={true} />;
+  return <ProjectList isProjectsPage={true} />;
 }

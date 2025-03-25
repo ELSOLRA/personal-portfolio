@@ -45,7 +45,7 @@ export interface ProjectClientProps {
   slug: string;
 }
 
-export interface ProjectsListClientProps {
+export interface ProjectListClientProps {
   projects: Project[];
   theme: Theme | null;
   elements: SiteElements | null;
