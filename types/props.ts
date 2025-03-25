@@ -45,10 +45,11 @@ export interface ProjectClientProps {
   slug: string;
 }
 
-export interface ProjectsListClientProps {
+export interface ProjectListClientProps {
   projects: Project[];
   theme: Theme | null;
   elements: SiteElements | null;
+  isProjectsPage?: boolean;
 }
 
 export interface ProjectPageProps {

@@ -8,9 +8,10 @@ export function useNavStyles(isScrolled: boolean) {
   // regex to check if we're on a specific project page
   const isProjectPage = pathname?.match(/^\/projects\/[^\/]+$/);
   const isAboutPage = pathname?.match(/^\/about$/);
+  const isProjectsListPage = pathname?.match(/^\/projects$/);
 
   const headerClasses =
-    isProjectPage || isScrolled || isAboutPage
+    isProjectPage || isScrolled || isAboutPage || isProjectsListPage
       ? "fixed w-full top-0 bg-theme-accent/90 backdrop-blur-sm shadow-md"
       : "absolute top-4 left-[2.5%] w-[95%] bg-theme-accent";
 
@@ -18,5 +19,6 @@ export function useNavStyles(isScrolled: boolean) {
     isProjectPage,
     isAboutPage,
     headerClasses,
+    isProjectsListPage,
   };
 }

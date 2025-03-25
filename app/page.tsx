@@ -4,7 +4,7 @@ import Navigation from "./components/global/navigation";
 import Hero from "@/app/components/sections/hero";
 import About from "@/app/components/sections/about";
 import ProjectPage from "./components/sections/project";
-import ProjectsList from "@/app/components/sections/projectslist";
+import ProjectsList from "@/app/components/sections/projectlist";
 import Contact from "@/app/components/sections/contact";
 
 export default function Home() {
