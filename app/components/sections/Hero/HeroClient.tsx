@@ -5,9 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { HeroClientProps } from "@/types";
 import TypewriterText from "../../global/Typewriter";
-import { useTheme } from "@/app/context/ThemeContext";
-import { useEffect } from "react";
 import { useThemeSetter } from "@/hooks/useThemeSetter";
+import { HiOutlineChevronRight } from "react-icons/hi";
 
 export default function HeroClient({
   hero,
@@ -23,7 +22,7 @@ export default function HeroClient({
   const {
     title = "Hi, I'm a Developer",
     subtitle = "Web Developer",
-    description = "Welcome to my portfolio website",
+
     mainImage,
     logo,
     layout = "split-right",
@@ -61,38 +60,30 @@ export default function HeroClient({
 
         {/* Content */}
         <div className="relative z-10 max-w-3xl mx-auto px-8 py-12 text-center">
-          {logo && (
-            <div className="mb-6 flex justify-center">
-              <Image
-                src={urlForImage(logo).width(120).height(40).url()}
-                alt="Logo"
-                width={120}
-                height={40}
-                className="h-10 w-auto"
-              />
-            </div>
-          )}
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-theme">
-            {title}
-          </h1>
-          {about?.name && (
-            <h2 className="mt-2 text-3xl md:text-4xl font-medium tracking-tight text-theme">
-              I'm {about.name}
+          <div className="relative inline-block text-left">
+            <HiOutlineChevronRight className="absolute -left-16 text-theme text-6xl" />
+            <h1 className="text-6xl md:text-8xl font-bold tracking-tight text-theme">
+              <TypewriterText text={`${title}`} />
+            </h1>
+            {about?.name && (
+              <h2 className="mt-4 text-5xl md:text-6xl font-bold tracking-tight text-theme">
+                <TypewriterText text={`I'm ${about.name}`} startDelay={2500} />
+              </h2>
+            )}
+            <h2 className="mt-6 text-2xl md:text-3xl opacity-90 text-theme">
+              {subtitle}
             </h2>
-          )}
-          <h2 className="mt-4 text-xl md:text-2xl opacity-90 text-theme">
-            {subtitle}
-          </h2>
-          <p className="mt-6 text-lg opacity-80 text-theme">{description}</p>
-          <div className="mt-8 flex gap-4 justify-center">
+          </div>
+
+          <div className="mt-10 flex gap-6 justify-center">
             <Link
               href={primaryButtonUrl}
-              className="px-6 py-3 transition-colors text-center bg-theme-accent text-theme-secondary-text hover:opacity-90">
+              className="px-8 py-4 transition-colors text-center bg-theme-accent text-theme-secondary-text hover:opacity-90 text-lg">
               {primaryButtonText}
             </Link>
             <Link
               href={secondaryButtonUrl}
-              className="px-6 py-3 border hover:bg-white/10 transition-colors text-center border-theme-accent text-theme-accent">
+              className="px-8 py-4 border-2 hover:bg-white/10 transition-colors text-center border-theme-accent text-theme-accent text-lg">
               {secondaryButtonText}
             </Link>
           </div>
@@ -101,59 +92,49 @@ export default function HeroClient({
     );
   }
 
+  // Minimal layout
   if (isMinimal) {
     return (
       <div className="h-screen flex items-center justify-center px-4 overflow-auto bg-theme-bg">
         <div className="max-w-4xl mx-auto py-12 text-center">
-          {logo && (
-            <div className="mb-6 flex justify-center">
-              <Image
-                src={urlForImage(logo).width(120).height(40).url()}
-                alt="Logo"
-                width={120}
-                height={40}
-                className="h-10 w-auto"
-              />
-            </div>
-          )}
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-theme">
-            {title}
-          </h1>
-          {about?.name && (
-            <h2 className="mt-2 text-3xl md:text-4xl font-medium tracking-tight text-theme">
-              I'm {about.name}
+          <div className="relative inline-block text-left">
+            <HiOutlineChevronRight className="absolute -left-16 text-theme text-6xl" />
+            <h1 className="text-6xl md:text-8xl font-bold tracking-tight text-theme">
+              <TypewriterText text={`${title}`} />
+            </h1>
+            {about?.name && (
+              <h2 className="mt-4 text-5xl md:text-6xl font-bold tracking-tight text-theme">
+                <TypewriterText text={`I'm ${about.name}`} startDelay={2500} />
+              </h2>
+            )}
+            <h2 className="mt-6 text-2xl md:text-3xl opacity-90 text-theme">
+              {subtitle}
             </h2>
-          )}
-          <h2 className="mt-4 text-xl md:text-2xl opacity-90 text-theme">
-            {subtitle}
-          </h2>
+          </div>
 
           {mainImage && (
-            <div className="mt-6 flex justify-center">
-              <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-theme-accent shadow-lg">
+            <div className="mt-8 flex justify-center">
+              <div className="w-36 h-36 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-theme-accent shadow-lg">
                 <Image
-                  src={urlForImage(mainImage).width(160).height(160).url()}
+                  src={urlForImage(mainImage).width(192).height(192).url()}
                   alt={mainImage.alt || title}
-                  width={160}
-                  height={160}
+                  width={192}
+                  height={192}
                   className="object-cover"
                 />
               </div>
             </div>
           )}
 
-          <p className="mt-6 text-lg max-w-2xl mx-auto opacity-80 text-theme">
-            {description}
-          </p>
-          <div className="mt-8 flex gap-4 justify-center">
+          <div className="mt-10 flex gap-6 justify-center">
             <Link
               href={primaryButtonUrl}
-              className="px-6 py-3 transition-colors text-center bg-theme-accent text-theme-secondary-text hover:opacity-90">
+              className="px-8 py-4 transition-colors text-center bg-theme-accent text-theme-secondary-text hover:opacity-90 text-lg">
               {primaryButtonText}
             </Link>
             <Link
               href={secondaryButtonUrl}
-              className="px-6 py-3 border-theme-accent text-theme-accent hover:bg-white/10 transition-colors text-center">
+              className="px-8 py-4 border-2 border-theme-accent text-theme-accent hover:bg-white/10 transition-colors text-center text-lg">
               {secondaryButtonText}
             </Link>
           </div>
@@ -165,7 +146,7 @@ export default function HeroClient({
   // Layout with responsive mobile overlay
   return (
     <div className="relative h-screen overflow-hidden">
-      {/* Mobile Background Image (visible only on small screens) */}
+      {/* Mobile background image (visible only on small screens) */}
       {mainImage && (
         <div className="md:hidden absolute inset-0 z-0">
           <Image
@@ -173,67 +154,51 @@ export default function HeroClient({
             alt={mainImage.alt || title}
             fill
             className={`object-cover ${isImageLeft ? "object-[0%_center]" : "object-[100%_center]"}`}
-            /*             style={{
-              objectPosition: isImageLeft ? "0% center" : "100% center",
-            }} */
             priority
           />
           <div className="absolute inset-0 opacity-60 bg-theme-bg"></div>
         </div>
       )}
 
-      {/* Desktop Split Layout (hidden on mobile) */}
+      {/* Desktop split layout (hidden on mobile) */}
       <div className="hidden md:flex flex-row h-screen overflow-hidden">
-        {/* Content Side */}
+        {/* Content side */}
         <div
           className={`relative z-10 w-1/2 flex items-center justify-center bg-theme-bg ${
             isImageLeft ? "order-2" : "order-1"
           }`}>
-          <div className="w-full max-w-md px-8 py-12">
-            {logo && (
-              <div className="mb-6">
-                <Image
-                  src={urlForImage(logo).width(120).height(40).url()}
-                  alt="Logo"
-                  width={120}
-                  height={40}
-                  className="h-10 w-auto"
-                />
-              </div>
-            )}
-            <div className="text-theme">Theme text color</div>
-
-            <h1 className="text-4xl lg:text-5xl font-bold tracking-tight text-theme">
-              <span className="terminal-prompt mr-2 inline-flex items-center">
-                &gt;
-              </span>
-              <TypewriterText text={`${title}`} />
-            </h1>
+          <div className="w-full max-w-md px-8 md:pl-13 md:pr-6 lg:px-8 py-12">
+            <div className="relative">
+              <HiOutlineChevronRight className="absolute -left-16 text-theme text-6xl" />
+              <h1 className="text-6xl lg:text-7xl font-bold tracking-tight text-theme">
+                <TypewriterText text={`${title}`} />
+              </h1>
+            </div>
             {about?.name && (
-              <h2 className="mt-2 text-3xl md:text-4xl font-medium tracking-tight text-theme">
+              <h2 className="mt-4 text-4xl lg:text-5xl font-bold tracking-tight text-theme">
                 <TypewriterText text={`I'm ${about.name}`} startDelay={2500} />
               </h2>
             )}
-            <h2 className="mt-3 text-xl md:text-2xl text-theme opacity-90">
+            <h2 className="mt-5 text-2xl lg:text-3xl text-theme opacity-90">
               {subtitle}
             </h2>
-            <p className="mt-4 text-lg text-theme opacity-80">{description}</p>
-            <div className="mt-6 flex gap-4">
+
+            <div className="mt-8 flex gap-4">
               <Link
                 href={primaryButtonUrl}
-                className="px-5 py-2 transition-colors text-center bg-theme-accent text-theme-secondary-text hover:opacity-90">
+                className="px-7 py-3 transition-colors text-center bg-theme-accent text-theme-secondary-text hover:opacity-90 text-lg">
                 {primaryButtonText}
               </Link>
               <Link
                 href={secondaryButtonUrl}
-                className="px-5 py-2 border border-theme-accent text-theme-accent hover:bg-white/10 transition-colors text-center">
+                className="px-7 py-3 border-2 border-theme-accent text-theme-accent hover:bg-white/10 transition-colors text-center text-lg">
                 {secondaryButtonText}
               </Link>
             </div>
           </div>
         </div>
 
-        {/* Image Side */}
+        {/* Image side */}
         <div
           className={`w-1/2 h-screen ${
             isImageLeft ? "order-1" : "order-2"
@@ -264,37 +229,28 @@ export default function HeroClient({
       <div className="md:hidden relative z-10 flex items-center justify-center h-screen">
         <div
           className={`w-full max-w-sm px-6 py-10 ${isImageLeft ? "ml-auto mr-8" : "ml-8 mr-auto"}`}>
-          {logo && (
-            <div className="mb-6">
-              <Image
-                src={urlForImage(logo).width(120).height(40).url()}
-                alt="Logo"
-                width={120}
-                height={40}
-                className="h-10 w-auto"
-              />
-            </div>
-          )}
-          <h1 className="text-3xl font-bold tracking-tight text-theme">
-            {title}
-          </h1>
+          <div className="relative">
+            <HiOutlineChevronRight className="absolute -left-12 text-theme text-5xl" />
+            <h1 className="text-5xl font-bold tracking-tight text-theme">
+              <TypewriterText text={`${title}`} />
+            </h1>
+          </div>
           {about?.name && (
-            <h2 className="mt-2 text-3xl md:text-4xl font-medium tracking-tight text-theme">
-              I'm {about.name}
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-theme">
+              <TypewriterText text={`I'm ${about.name}`} startDelay={2500} />
             </h2>
           )}
+          <h2 className="mt-4 text-2xl text-theme opacity-90">{subtitle}</h2>
 
-          <h2 className="mt-3 text-xl text-theme opacity-90">{subtitle}</h2>
-          <p className="mt-4 text-base text-theme opacity-80">{description}</p>
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
             <Link
               href={primaryButtonUrl}
-              className="px-5 py-2 transition-colors text-center bg-theme-accent text-theme-button-text hover:opacity-90">
+              className="px-5 py-3 transition-colors text-center bg-theme-accent text-theme-button-text hover:opacity-90 text-lg">
               {primaryButtonText}
             </Link>
             <Link
               href={secondaryButtonUrl}
-              className="px-5 py-2 border border-theme-accent text-theme-accent hover:bg-white/10 transition-colors text-center">
+              className="px-5 py-3 border-2 border-theme-accent text-theme-accent hover:bg-white/10 transition-colors text-center text-lg">
               {secondaryButtonText}
             </Link>
           </div>
