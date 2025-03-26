@@ -30,9 +30,9 @@ export default function HeroClient({
 
   const {
     primaryButtonText = "View My Work",
-    primaryButtonUrl = "/projects",
+    primaryButtonUrl = "/#projects",
     secondaryButtonText = "Contact",
-    secondaryButtonUrl = "/contact",
+    secondaryButtonUrl = "/",
   } = elements;
 
   //  Layout classes based on selected layout
@@ -164,7 +164,7 @@ export default function HeroClient({
       <div className="hidden md:flex flex-row h-screen overflow-hidden">
         {/* Content side */}
         <div
-          className={`relative z-10 w-1/2 flex items-center justify-center bg-theme-bg ${
+          className={`relative z-10 w-1/2 flex items-center justify-center bg-theme-secondary-bg ${
             isImageLeft ? "order-2" : "order-1"
           }`}>
           <div className="w-full max-w-md px-8 md:pl-13 md:pr-6 lg:px-8 py-12">
@@ -186,12 +186,12 @@ export default function HeroClient({
             <div className="mt-8 flex gap-4">
               <Link
                 href={primaryButtonUrl}
-                className="px-7 py-3 transition-colors text-center bg-theme-accent text-theme-secondary-text hover:opacity-90 text-lg">
+                className="px-7 py-3 transition-colors text-center bg-theme-accent text-theme hover:opacity-90 text-lg">
                 {primaryButtonText}
               </Link>
               <Link
                 href={secondaryButtonUrl}
-                className="px-7 py-3 border-2 border-theme-accent text-theme-accent hover:bg-white/10 transition-colors text-center text-lg">
+                className="px-7 py-3 border-2 border-theme-accent text-theme  hover:bg-white/10 transition-colors text-center text-lg">
                 {secondaryButtonText}
               </Link>
             </div>

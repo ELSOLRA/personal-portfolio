@@ -132,8 +132,8 @@ export default function ContactForm({ theme, about }: ContactFormProps) {
       className="relative overflow-hidden py-20 md:py-50 p-2">
       {/* Background elements */}
       <div className="absolute inset-0 hidden md:block">
-        <div className="absolute top-0 left-0 w-1/2 h-full bg-theme-secondary-accent"></div>
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-theme-accent"></div>
+        <div className="absolute top-0 left-0 w-1/2 h-full bg-theme-secondary-bg"></div>
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-theme-bg"></div>
       </div>
       <div className="absolute inset-0 md:hidden bg-gradient-to-b from-theme-bg to-theme-accent/10"></div>
 
@@ -142,7 +142,7 @@ export default function ContactForm({ theme, about }: ContactFormProps) {
         {/*     <div className="hidden md:block md:w-1/12 lg:w-1/12"></div> */}
 
         {/* Form container */}
-        <div className="w-full md:w-7/12 lg:w-7/12 xl:w-7/12 max-w-4xl bg-white dark:bg-gray-800 shadow-2xl overflow-hidden mb-8 ">
+        <div className="w-full md:w-7/12 lg:w-7/12 xl:w-7/12 max-w-4xl bg-white dark:bg-theme-accent shadow-2xl overflow-hidden mb-8 ">
           <div className="p-8">
             <div className="mb-5 mt-2">
               <h2 className="text-4xl font-bold text-theme-secondary-text mb-2">
@@ -201,7 +201,7 @@ export default function ContactForm({ theme, about }: ContactFormProps) {
                 <button
                   type="submit"
                   disabled={status.submitting}
-                  className="w-4/12 px-6 py-4 text-xl bg-theme-accent text-theme-secondary-text  hover:bg-opacity-90 transition-colors focus:outline-none focus:ring-2 focus:ring-theme-accent focus:ring-offset-2 disabled:opacity-50">
+                  className="w-4/12 px-6 py-4 text-xl bg-theme-bg text-theme  hover:bg-opacity-90 transition-colors focus:outline-none focus:ring-2 focus:ring-theme-accent focus:ring-offset-2 disabled:opacity-50">
                   {status.submitting ? "Sending..." : "Send Message"}
                 </button>
               </div>

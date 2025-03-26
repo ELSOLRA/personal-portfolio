@@ -93,7 +93,7 @@ export default function AboutDetailClient({
   };
 
   return (
-    <div className="bg-theme-bg">
+    <div className="bg-theme-secondary-bg">
       <div className="container mx-auto px-6 max-w-[100rem] pb-20 pt-30">
         {/* Main title */}
         <h1 className="text-5xl md:text-6xl font-bold text-theme mb-16  text-center lg:text-left">
@@ -205,7 +205,7 @@ export default function AboutDetailClient({
             {orderedCategories.map((category) => (
               <div key={category} className="flex flex-col">
                 {/* Category header */}
-                <h3 className="text-2xl font-semibold text-theme-accent mb-6 pb-2 border-b border-theme-accent/30">
+                <h3 className="text-2xl font-semibold text-theme-secondary-text mb-6 pb-2 border-b border-theme-accent/30">
                   {categoryTitles[category]}
                 </h3>
 

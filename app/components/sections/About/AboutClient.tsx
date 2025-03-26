@@ -34,17 +34,15 @@ export default function AboutClient({
   } = about;
 
   return (
-    <div
-      id="about-section"
-      className="bg-theme-secondary-text w-full py-20 md:py-50">
+    <div id="about-section" className="bg-theme-bg w-full py-20 md:py-50">
       <div className="w-full max-w-[100rem] mx-auto">
         {/* About Me heading with extended underline */}
         <div className="w-full text-center mb-12">
           <div className="relative inline-block">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-theme-accent mb-6">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-theme mb-6">
               About Me
             </h2>
-            <div className="absolute  left-1/2 transform -translate-x-1/2 w-[120%] h-1 bg-theme-accent"></div>
+            <div className="absolute  left-1/2 transform -translate-x-1/2 w-[120%] h-1 bg-theme"></div>
           </div>
         </div>
         <div className="flex flex-col md:flex-row">
@@ -110,7 +108,7 @@ export default function AboutClient({
                 <div className="">
                   <Link
                     href="/about"
-                    className="inline-block px-6 py-3 bg-theme-accent text-theme-secondary-text hover:opacity-70 transition-colors">
+                    className="inline-block px-6 py-3 bg-theme-accent text-theme hover:opacity-70 transition-colors">
                     MORE ABOUT ME
                   </Link>
                 </div>

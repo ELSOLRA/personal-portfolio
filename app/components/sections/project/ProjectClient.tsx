@@ -54,7 +54,7 @@ export default function ProjectClient({
   return (
     <div
       id="project-section"
-      className="flex-grow bg-theme-bg flex mb-20 sm:mt-20 sm:mb-0 items-center">
+      className="flex-grow bg-theme-secondary-bg flex mb-20 sm:mt-20 sm:mb-0 items-center">
       <div className="container mx-auto px-4 max-w-[100rem]">
         <div className="flex flex-col lg:flex-row ">
           {/* Image - left side */}
@@ -107,7 +107,7 @@ export default function ProjectClient({
                     {technologies.map((tech, index) => (
                       <span
                         key={index}
-                        className="px-3 py-1 bg-theme-accent/20 text-theme-accent rounded-md text-sm">
+                        className="px-3 py-1 bg-theme-accent/20 text-theme-secondary-text rounded-md text-sm">
                         {tech}
                       </span>
                     ))}
@@ -143,7 +143,7 @@ export default function ProjectClient({
               <div>
                 <Link
                   href="/#projects"
-                  className="inline-block px-6 py-3  bg-theme-bg border border-theme-accent text-theme hover:bg-theme-accent/10 transition-colors">
+                  className="inline-block px-6 py-3  bg-theme-accent border border-theme-accent text-theme hover:bg-theme-accent/10 transition-colors">
                   Back to Projects
                 </Link>
               </div>

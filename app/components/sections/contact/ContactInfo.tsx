@@ -10,7 +10,7 @@ export const ContactInfo = ({
 
   return (
     <div className="w-full md:w-5/12 lg:w-4/12 xl:w-4/12 md:pl-8 lg:pl-25  mb-8 md:mb-0">
-      <div className="text-theme-secondary-text md:text-white">
+      <div className="text-theme-secondary-text md:text-theme-secondary-text">
         <h3 className="text-4xl font-bold mb-5">Let's Connect</h3>
         <div className="flex items-center my-4">
           <div className="w-40 h-1 bg-theme-bg"></div>
