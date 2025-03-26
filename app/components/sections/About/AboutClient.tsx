@@ -1,10 +1,8 @@
 "use client";
 
-import { useTheme } from "@/app/context/ThemeContext";
 import { useThemeSetter } from "@/hooks/useThemeSetter";
 import { urlForImage } from "@/sanity/lib/image";
 import { AboutClientProps } from "@/types";
-import { PortableText } from "next-sanity";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -29,7 +27,6 @@ export default function AboutClient({
     role = "Developer",
     profileImage,
     shortBio = "A passionate developer who loves creating intuitive user experiences.",
-    fullBio,
     socialLinks,
     email,
     resumeURL,
@@ -41,7 +38,7 @@ export default function AboutClient({
       id="about-section"
       className="bg-theme-secondary-text w-full py-20 md:py-50">
       <div className="w-full max-w-[100rem] mx-auto">
-        {/* About Me Heading with extended underline */}
+        {/* About Me heading with extended underline */}
         <div className="w-full text-center mb-12">
           <div className="relative inline-block">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-theme-accent mb-6">
@@ -86,33 +83,27 @@ export default function AboutClient({
                 {shortBio}
               </div>
 
-              {/* Full Bio */}
-              {fullBio && (
-                <div className="text-theme opacity-80 prose prose-lg max-w-none mb-6">
-                  <PortableText value={fullBio} />
-                </div>
-              )}
-
               {/* Location and Contact Info */}
-              <div className="flex flex-wrap gap-y-2 mb-6">
-                {location && (
-                  <div className="w-full md:w-1/2 flex items-center gap-2 text-theme opacity-80">
-                    <FaMapMarkerAlt className="h-5 w-5" />
-                    <span>{location}</span>
-                  </div>
-                )}
-                {email && (
-                  <div className="w-full md:w-1/2 flex items-center gap-2 text-theme opacity-80">
-                    <FaEnvelope className="h-5 w-5" />
-                    <a
-                      href={`mailto:${email}`}
-                      className="hover:text-theme-accent transition-colors">
-                      {email}
-                    </a>
-                  </div>
-                )}
+              <div className="flex flex-wrap mb-6">
+                <div className="flex flex-col sm:flex-row sm:gap-6">
+                  {location && (
+                    <div className="flex items-center gap-2 text-theme opacity-80 mb-4 sm:mb-0">
+                      <FaMapMarkerAlt className="h-5 w-5" />
+                      <span>{location}</span>
+                    </div>
+                  )}
+                  {email && (
+                    <div className="flex items-center gap-2 text-theme opacity-80">
+                      <FaEnvelope className="h-5 w-5" />
+                      <a
+                        href={`mailto:${email}`}
+                        className="hover:text-theme-accent transition-colors">
+                        {email}
+                      </a>
+                    </div>
+                  )}
+                </div>
               </div>
-
               {/* Social Media Links */}
               <div className="flex flex-row gap-4 items-center mb-4">
                 {/* More about me button */}
