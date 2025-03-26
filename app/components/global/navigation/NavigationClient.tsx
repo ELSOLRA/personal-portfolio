@@ -122,7 +122,7 @@ export default function NavigationClient({
             </li>
             <li>
               <Link
-                href="/about"
+                href="/#about-section"
                 className="font-medium text-gray-700 hover:text-[#48acda] transition-colors"
                 onClick={() => setIsMenuOpen(false)}>
                 About
@@ -130,7 +130,7 @@ export default function NavigationClient({
             </li>
             <li>
               <Link
-                href="/projects"
+                href="/#projects"
                 className="font-medium text-gray-700 hover:text-[#48acda] transition-colors"
                 onClick={() => setIsMenuOpen(false)}>
                 Projects
