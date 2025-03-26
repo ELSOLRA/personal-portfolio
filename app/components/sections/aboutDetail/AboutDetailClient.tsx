@@ -148,22 +148,27 @@ export default function AboutDetailClient({
 
           {/* Full bio section */}
           {fullBio && (
-            <div className="w-full lg:w-3/4 flex flex-col justify-center lg:h-120 lg:-mt-12">
+            <div className="w-full lg:w-3/4 flex flex-col justify-center lg:h-auto lg:mt-0 overflow-x-hidden">
               <h2 className="text-3xl font-bold text-theme mb-6">I'm a</h2>
-              <div className="prose prose-lg max-w-none text-theme opacity-90">
-                <p className="text-xl">
+              <div className="prose prose-lg max-w-none text-theme opacity-90 overflow-x-visible">
+                <p className="text-xl break-words">
                   <span>
                     Hi! My name is{" "}
                     <span className="font-bold text-theme-secondary-text">
                       {name}
                     </span>
+                    .
                   </span>{" "}
-                  <span className="inline">
+                  <span className="inline-block w-full">
                     <PortableText
                       value={fullBio}
                       components={{
                         block: {
-                          normal: ({ children }) => <>{children}</>,
+                          normal: ({ children }) => (
+                            <span className="inline-block w-full">
+                              {children}
+                            </span>
+                          ),
                         },
                       }}
                     />
