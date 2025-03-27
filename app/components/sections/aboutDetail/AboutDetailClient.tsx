@@ -5,19 +5,9 @@ import { urlForImage } from "@/sanity/lib/image";
 import { AboutClientProps, Skill } from "@/types";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
-import {
-  FaGithub,
-  FaLinkedin,
-  FaMapMarkerAlt,
-  FaEnvelope,
-  FaFileAlt,
-  FaArrowRight,
-  FaLongArrowAltRight,
-} from "react-icons/fa";
-import {
-  PiArrowFatLinesRightBold,
-  PiArrowFatLinesRightThin,
-} from "react-icons/pi";
+import { FaFileAlt } from "react-icons/fa";
+import { PiArrowFatLinesRightBold } from "react-icons/pi";
+import { ScaleLoader } from "react-spinners";
 
 export default function AboutDetailClient({
   about,
@@ -61,10 +51,7 @@ export default function AboutDetailClient({
     profileImage,
     /*   shortBio = "", */
     fullBio,
-    email,
-    location,
     resumeURL,
-    socialLinks,
   } = about;
 
   // categories in a specific order
@@ -196,7 +183,6 @@ export default function AboutDetailClient({
         {/*  Skills section */}
         <div className="w-full">
           <h2 className="text-4xl font-bold text-theme mb-10">
-            {" "}
             &#123; Skills &#125;
           </h2>
 
