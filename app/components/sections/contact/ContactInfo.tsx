@@ -13,9 +13,9 @@ export const ContactInfo = ({
       <div className="text-theme-secondary-text md:text-theme-secondary-text">
         <h3 className="text-4xl font-bold mb-5">Let's Connect</h3>
         <div className="flex items-center my-4">
-          <div className="w-40 h-1 bg-theme-bg"></div>
+          <div className="w-40 h-1 bg-theme-secondary-text"></div>
         </div>
-        <p className="mb-6 opacity-90 text-2xl">
+        <p className="mb-6 opacity-90 text-2xl font-semibold">
           Always happy to explore freelance projects that align with my
           strengths. Feel free to reach out!
         </p>
@@ -25,7 +25,7 @@ export const ContactInfo = ({
             <div className="flex items-start">
               <div className="flex items-center gap-3">
                 <div className="flex items-center justify-center w-12 h-12 rounded-full bg-theme/20">
-                  <FaMapMarkerAlt className="h-5 w-5 text-theme-accent" />
+                  <FaMapMarkerAlt className="h-5 w-5 text-theme-secondary-text" />
                 </div>
                 <span className="text-xl">{location}</span>
               </div>
@@ -35,7 +35,7 @@ export const ContactInfo = ({
           {email && (
             <div className="flex items-center gap-3">
               <div className="flex items-center justify-center w-12 h-12 rounded-full bg-theme/20">
-                <FaEnvelope className="h-5 w-5 text-theme-accent" />
+                <FaEnvelope className="h-5 w-5 text-theme-secondary-text" />
               </div>
               <a
                 href={`mailto:${email}`}
