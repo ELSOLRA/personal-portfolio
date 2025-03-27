@@ -6,6 +6,7 @@ import { getActiveTheme } from "@/sanity/lib/queries";
 import { Theme } from "@/types";
 import { ThemeProvider } from "./context/ThemeContext";
 import Footer from "@/app/components/global/footer";
+import { HydrationMarker } from "./components/global/HydrationMarker";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -61,6 +62,7 @@ export default async function RootLayout({
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} antialiased`}>
+        <HydrationMarker />
         <div className="flex flex-col min-h-screen">
           <ThemeProvider initialTheme={initialTheme}>
             <Navigation />

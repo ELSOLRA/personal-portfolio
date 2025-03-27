@@ -149,7 +149,7 @@ export default function ContactForm({ theme, about }: ContactFormProps) {
                 Get in Touch
               </h2>
               <div className="flex items-center my-4">
-                <div className="w-40 h-1 bg-theme-accent"></div>
+                <div className="w-40 h-1 bg-theme-secondary-text"></div>
               </div>
             </div>
 
@@ -201,7 +201,7 @@ export default function ContactForm({ theme, about }: ContactFormProps) {
                 <button
                   type="submit"
                   disabled={status.submitting}
-                  className="w-4/12 px-6 py-4 text-xl bg-theme-bg text-theme  hover:bg-opacity-90 transition-colors focus:outline-none focus:ring-2 focus:ring-theme-accent focus:ring-offset-2 disabled:opacity-50">
+                  className="w-4/12 px-6 py-4 text-xl bg-theme-bg text-theme font-semibold  hover:bg-opacity-90 transition-colors focus:outline-none focus:ring-2 focus:ring-theme-accent focus:ring-offset-2 disabled:opacity-50">
                   {status.submitting ? "Sending..." : "Send Message"}
                 </button>
               </div>

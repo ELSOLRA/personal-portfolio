@@ -243,12 +243,12 @@ function ProjectCard({
               {technologies.slice(0, isLarge ? 5 : 3).map((tech, index) => (
                 <span
                   key={index}
-                  className="px-2 py-0.5 bg-theme-accent/10 text-theme-secondary-text text-sm rounded font-bold">
+                  className="px-2 py-0.5 bg-theme-secondary-accent/10 text-theme-secondary-text text-sm rounded font-bold">
                   {tech}
                 </span>
               ))}
               {technologies.length > (isLarge ? 5 : 3) && (
-                <span className="px-2 py-0.5 bg-theme-accent/10 text-theme-accent text-sm rounded font-bold">
+                <span className="px-2 py-0.5 bg-theme-secondary-accent/10 text-theme-accent text-sm rounded font-bold">
                   +{technologies.length - (isLarge ? 5 : 3)}
                 </span>
               )}

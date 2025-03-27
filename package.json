@@ -13,7 +13,7 @@
     "@sanity/color-input": "^4.0.3",
     "@sanity/ui": "^2.15.7",
     "@sanity/vision": "^3.78.1",
-    "next": "15.2.1",
+    "next": "^15.2.4",
     "next-sanity": "^9.9.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
