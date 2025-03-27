@@ -142,9 +142,9 @@ export default function ProjectClient({
               {/* Back to projects */}
               <div>
                 <Link
-                  href="/#projects"
+                  href="/projects"
                   className="inline-block px-6 py-3  bg-theme-accent border border-theme-accent text-theme hover:bg-theme-accent/10 transition-colors">
-                  Back to Projects
+                  More Projects
                 </Link>
               </div>
             </div>
