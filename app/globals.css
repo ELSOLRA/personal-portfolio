@@ -16,6 +16,10 @@
 
   /* default Button text color*/
   --theme-button-text-color: #ffffff;
+
+  /* --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-manrope: var(--font-manrope); */
 }
 
 @theme {
@@ -34,6 +38,10 @@
   --color-theme-secondary-text: var(--theme-secondary-text-color);
   --color-theme-secondary-accent: var(--theme-secondary-accent-color);
   --color-theme-secondary-bg: var(--theme-secondary-bg-color);
+
+  --font-geist-sans: var(--font-geist-sans);
+  --font-geist-mono: var(--font-geist-mono);
+  --font-manrope: var(--font-manrope);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -46,8 +54,9 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
 }
+
 
 @layer utilities {
   @keyframes blink {
