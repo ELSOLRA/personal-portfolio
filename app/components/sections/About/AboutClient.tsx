@@ -5,12 +5,7 @@ import { urlForImage } from "@/sanity/lib/image";
 import { AboutClientProps } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  FaMapMarkerAlt,
-  FaGithub,
-  FaLinkedin,
-  FaEnvelope,
-} from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function AboutClient({
   about,
@@ -28,33 +23,22 @@ export default function AboutClient({
     profileImage,
     shortBio = "A passionate developer who loves creating intuitive user experiences.",
     socialLinks,
-    email,
     resumeURL,
-    location,
   } = about;
 
   return (
-    <div id="about-section" className="bg-theme-bg w-full py-20 md:py-50">
+    <div id="about-section" className="bg-theme-bg w-full py-25 md:py-45">
       <div className="w-full max-w-[100rem] mx-auto">
-        {/* About Me heading with extended underline */}
-        <div className="w-full text-center mb-12">
-          <div className="relative inline-block">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-theme mb-6">
-              About Me
-            </h2>
-            <div className="absolute  left-1/2 transform -translate-x-1/2 w-[120%] h-1 bg-theme"></div>
-          </div>
-        </div>
-        <div className="flex flex-col md:flex-row">
-          {/* Image Section - Left Side */}
+        <div className="flex flex-col md:flex-row ">
+          {/* Image section, left side */}
           <div className="w-full md:w-2/5 flex md:justify-end justify-start items-start max-w-7xl">
-            <div className="w-70 h-70 md:w-78 md:h-78 lg:w-96 lg:h-96 overflow-hidden mt-4 mx-8 mb-2 md:m-8">
+            <div className="w-80 h-80 md:w-96 md:h-96 lg:w-[32rem] lg:h-[32rem] overflow-hidden mt-4 mx-8 mb-2 md:m-8">
               {profileImage ? (
                 <Image
                   src={urlForImage(profileImage).url()}
                   alt={profileImage.alt || `Photo of ${name}`}
-                  width={384}
-                  height={384}
+                  width={512}
+                  height={512}
                   className="object-cover w-full h-full"
                   priority
                 />
@@ -66,53 +50,32 @@ export default function AboutClient({
             </div>
           </div>
 
-          {/* Content Section - Right Side */}
-          <div className="w-full md:w-3/5 flex items-start justify-start p-8 md:p-12 lg:pl-0">
-            <div className="max-w-2xl w-full">
-              <h1 className="text-4xl md:text-5xl font-bold text-theme mb-4">
+          {/* Content section - right side */}
+          <div className="w-full md:w-3/5 flex items-center justify-start p-8 md:p-8.5 md:px-8 xl:pl-10 ">
+            <div className="flex flex-col h-full ">
+              <h1 className="text-4xl md:text-5xl font-bold text-theme mt-auto mb-4">
                 {name}
               </h1>
-              <h3 className="text-xl md:text-2xl font-medium text-theme opacity-80 mb-6">
+              <h3 className="text-xl md:text-2xl font-semibold text-theme opacity-80 mb-6">
                 {role}
               </h3>
 
-              {/* Short Bio */}
-              <div className="text-lg text-theme opacity-90 mb-6">
+              {/* Short bio */}
+              <div className="text-xl font-semibold text-theme opacity-90 mb-6">
                 {shortBio}
               </div>
 
-              {/* Location and Contact Info */}
-              <div className="flex flex-wrap mb-6">
-                <div className="flex flex-col sm:flex-row sm:gap-6">
-                  {location && (
-                    <div className="flex items-center gap-2 text-theme opacity-80 mb-4 sm:mb-0">
-                      <FaMapMarkerAlt className="h-5 w-5" />
-                      <span>{location}</span>
-                    </div>
-                  )}
-                  {email && (
-                    <div className="flex items-center gap-2 text-theme opacity-80">
-                      <FaEnvelope className="h-5 w-5" />
-                      <a
-                        href={`mailto:${email}`}
-                        className="hover:text-theme-accent transition-colors">
-                        {email}
-                      </a>
-                    </div>
-                  )}
-                </div>
-              </div>
               {/* Social Media Links */}
-              <div className="flex flex-row gap-4 items-center mb-4">
+              <div className="flex flex-row gap-4 items-center mb-4 md:mb-0 mt-auto">
                 {/* More about me button */}
-                <div className="">
-                  <Link
-                    href="/about"
-                    className="inline-block px-6 py-3 bg-theme-accent text-theme hover:opacity-70 transition-colors">
-                    MORE ABOUT ME
-                  </Link>
-                </div>
-                <div className="flex gap-4 justify-center">
+
+                <Link
+                  href="/about"
+                  className="inline-block px-6 py-3 bg-theme-accent text-theme hover:opacity-70 transition-colors">
+                  MORE ABOUT ME
+                </Link>
+
+                <div className="flex gap-4 items-center">
                   {socialLinks?.github && (
                     <a
                       href={socialLinks.github}

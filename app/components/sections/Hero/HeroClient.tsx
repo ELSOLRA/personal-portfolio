@@ -70,7 +70,7 @@ export default function HeroClient({
                 <TypewriterText text={`I'm ${about.name}`} startDelay={2500} />
               </h2>
             )}
-            <h2 className="mt-6 text-2xl md:text-3xl opacity-90 text-theme">
+            <h2 className="mt-6 text-2xl md:text-3xl opacity-90 font-semibold text-theme">
               {subtitle}
             </h2>
           </div>
@@ -78,12 +78,12 @@ export default function HeroClient({
           <div className="mt-10 flex gap-6 justify-center">
             <Link
               href={primaryButtonUrl}
-              className="px-8 py-4 transition-colors text-center bg-theme-accent text-theme-secondary-text hover:opacity-90 text-lg">
+              className="px-8 py-4 transition-colors text-center bg-theme-accent text-theme-secondary-text font-semibold hover:opacity-90 text-lg">
               {primaryButtonText}
             </Link>
             <Link
               href={secondaryButtonUrl}
-              className="px-8 py-4 border-2 hover:bg-white/10 transition-colors text-center border-theme-accent text-theme-accent text-lg">
+              className="px-8 py-4 border-2 hover:bg-white/10 transition-colors text-center border-theme-accent text-theme-accent font-semibold text-lg">
               {secondaryButtonText}
             </Link>
           </div>
@@ -107,7 +107,7 @@ export default function HeroClient({
                 <TypewriterText text={`I'm ${about.name}`} startDelay={2500} />
               </h2>
             )}
-            <h2 className="mt-6 text-2xl md:text-3xl opacity-90 text-theme">
+            <h2 className="mt-6 text-2xl md:text-3xl opacity-90 font-semibold text-theme">
               {subtitle}
             </h2>
           </div>
@@ -129,12 +129,12 @@ export default function HeroClient({
           <div className="mt-10 flex gap-6 justify-center">
             <Link
               href={primaryButtonUrl}
-              className="px-8 py-4 transition-colors text-center bg-theme-accent text-theme-secondary-text hover:opacity-90 text-lg">
+              className="px-8 py-4 transition-colors text-center bg-theme-accent text-theme-secondary-text font-semibold hover:opacity-90 text-lg">
               {primaryButtonText}
             </Link>
             <Link
               href={secondaryButtonUrl}
-              className="px-8 py-4 border-2 border-theme-accent text-theme-accent hover:bg-white/10 transition-colors text-center text-lg">
+              className="px-8 py-4 border-2 border-theme-accent text-theme-accent font-semibold hover:bg-white/10 transition-colors text-center text-lg">
               {secondaryButtonText}
             </Link>
           </div>
@@ -167,9 +167,12 @@ export default function HeroClient({
           className={`relative z-10 w-1/2 flex items-center justify-center bg-theme-secondary-bg ${
             isImageLeft ? "order-2" : "order-1"
           }`}>
-          <div className="w-full max-w-md px-8 md:pl-13 md:pr-6 lg:px-8 py-12">
+          <div
+            className={`w-full max-w-md ${
+              isImageLeft ? "md:pl-16 lg:px-8" : "md:pl-14 md:pr-5 xl:pl-0"
+            } py-12`}>
             <div className="relative">
-              <HiOutlineChevronRight className="absolute -left-16 text-theme text-6xl" />
+              <HiOutlineChevronRight className="absolute  -left-16 md:top-1 lg:top-2 text-theme text-6xl" />
               <h1 className="text-6xl lg:text-7xl font-bold tracking-tight text-theme">
                 <TypewriterText text={`${title}`} />
               </h1>
@@ -179,19 +182,19 @@ export default function HeroClient({
                 <TypewriterText text={`I'm ${about.name}`} startDelay={2500} />
               </h2>
             )}
-            <h2 className="mt-5 text-2xl lg:text-3xl text-theme opacity-90">
+            <h2 className="mt-5 text-2xl lg:text-3xl text-theme font-semibold opacity-90">
               {subtitle}
             </h2>
 
             <div className="mt-8 flex gap-4">
               <Link
                 href={primaryButtonUrl}
-                className="px-7 py-3 transition-colors text-center bg-theme-accent text-theme hover:opacity-90 text-lg">
+                className="px-7 py-3 transition-colors text-center bg-theme-accent text-theme font-semibold hover:opacity-90 text-lg w-full flex items-center justify-center min-h-[3.5rem]">
                 {primaryButtonText}
               </Link>
               <Link
                 href={secondaryButtonUrl}
-                className="px-7 py-3 border-2 border-theme-accent text-theme  hover:bg-white/10 transition-colors text-center text-lg">
+                className="px-7 py-3 border-2 border-theme-accent text-theme font-semibold hover:bg-white/10 transition-colors text-center text-lg w-full flex items-center justify-center min-h-[3.5rem]">
                 {secondaryButtonText}
               </Link>
             </div>
@@ -240,17 +243,19 @@ export default function HeroClient({
               <TypewriterText text={`I'm ${about.name}`} startDelay={2500} />
             </h2>
           )}
-          <h2 className="mt-4 text-2xl text-theme opacity-90">{subtitle}</h2>
+          <h2 className="mt-4 text-2xl text-theme font-semibold opacity-90">
+            {subtitle}
+          </h2>
 
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
             <Link
               href={primaryButtonUrl}
-              className="px-5 py-3 transition-colors text-center bg-theme-accent text-theme-button-text hover:opacity-90 text-lg">
+              className="px-5 py-3 transition-colors text-center bg-theme-accent text-theme-button-text font-semibold hover:opacity-90 text-lg">
               {primaryButtonText}
             </Link>
             <Link
               href={secondaryButtonUrl}
-              className="px-5 py-3 border-2 border-theme-accent text-theme-accent hover:bg-white/10 transition-colors text-center text-lg">
+              className="px-5 py-3 border-2 border-theme-accent text-theme-accent font-semibold hover:bg-white/10 transition-colors text-center text-lg">
               {secondaryButtonText}
             </Link>
           </div>

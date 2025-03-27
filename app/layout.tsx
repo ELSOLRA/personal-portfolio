@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Manrope } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/app/components/global/navigation";
 import { getActiveTheme } from "@/sanity/lib/queries";
@@ -14,6 +14,11 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
 });
 
@@ -55,7 +60,7 @@ export default async function RootLayout({
         <style>{`:root { ${themeStyles} }`}</style>
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} antialiased`}>
         <div className="flex flex-col min-h-screen">
           <ThemeProvider initialTheme={initialTheme}>
             <Navigation />

@@ -1,4 +1,3 @@
-// components/global/Navigation.tsx
 "use client";
 
 import { useEffect, useState } from "react";
@@ -42,7 +41,7 @@ export default function NavigationClient({
 
   return (
     <header
-      className={`z-50 transition-all duration-300 ease-in-out ${headerClasses}`}>
+      className={` z-50 transition-all duration-300 ease-in-out ${headerClasses}`}>
       <div className=" mx-auto flex justify-between items-center h-20 px-4 sm:px-6 lg:px-8 ">
         <div className="flex-shrink-0 flex items-center">
           <Link href="/" className="inline-block mr-3">
@@ -115,7 +114,7 @@ export default function NavigationClient({
             <li>
               <Link
                 href="/"
-                className="font-medium text-gray-700 hover:text-[#48acda] transition-colors"
+                className="font-semibold text-xl text-gray-700 hover:text-[#48acda] transition-colors"
                 onClick={() => setIsMenuOpen(false)}>
                 Intro
               </Link>
@@ -123,7 +122,7 @@ export default function NavigationClient({
             <li>
               <Link
                 href="/#about-section"
-                className="font-medium text-gray-700 hover:text-[#48acda] transition-colors"
+                className="font-semibold text-xl text-gray-700 hover:text-[#48acda] transition-colors"
                 onClick={() => setIsMenuOpen(false)}>
                 About
               </Link>
@@ -131,7 +130,7 @@ export default function NavigationClient({
             <li>
               <Link
                 href="/#projects"
-                className="font-medium text-gray-700 hover:text-[#48acda] transition-colors"
+                className="font-semibold text-xl text-gray-700 hover:text-[#48acda] transition-colors"
                 onClick={() => setIsMenuOpen(false)}>
                 Projects
               </Link>
@@ -139,7 +138,7 @@ export default function NavigationClient({
             <li>
               <Link
                 href="/#contact-form"
-                className="font-medium text-gray-700 hover:text-[#48acda] transition-colors"
+                className="font-semibold text-xl text-gray-700 hover:text-[#48acda] transition-colors"
                 onClick={() => setIsMenuOpen(false)}>
                 Contact
               </Link>
