@@ -25,13 +25,21 @@ export default function NavigationClient({
       const aboutSection = document.getElementById("about-section");
       if (aboutSection) {
         const aboutPosition = aboutSection.getBoundingClientRect().top;
-        // Show nav when About section is at top of viewport or above
+        // shows nav when About section is at top of viewport or above
         setIsScrolled(aboutPosition <= 50);
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    // allows DOM to finish rendering
+    const timeout = setTimeout(() => {
+      handleScroll(); // runs once on mount
+      window.addEventListener("scroll", handleScroll);
+    }, 100);
+
+    return () => {
+      clearTimeout(timeout);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const toggleMenu = () => {
