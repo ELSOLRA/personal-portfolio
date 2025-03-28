@@ -19,7 +19,7 @@ export default function ProjectClient({
   if (!theme || !elements) return null;
   if (!project) {
     return (
-      <div className="min-h-[80vh] flex flex-col items-center justify-center bg-theme-bg p-8 text-center">
+      <div className="min-h-[80vh] flex flex-col items-center justify-center bg-theme-secondary-bg p-8 text-center">
         <h1 className="text-4xl font-bold text-theme mb-4">
           Project Not Found
         </h1>
@@ -27,10 +27,30 @@ export default function ProjectClient({
           Sorry, the project {slug && `"${slug}"`} is not available or does not
           exist.
         </p>
+
         <Link
           href="/projects"
-          className="inline-block px-6 py-3 rounded-lg bg-theme-accent text-theme-secondary-text hover:opacity-70 transition-colors">
-          Back to Projects
+          className="w-3/4 sm:w-1/3 inline-flex items-center justify-center px-6 py-3 min-h-[3.5rem] bg-theme-accent text-theme
+      relative overflow-hidden
+      hover:text-theme-third-text
+      focus:outline-none 
+      focus:ring-2 
+      focus:ring-theme-accent 
+      focus:ring-offset-2 
+      disabled:opacity-50
+      transition-all duration-300 
+      before:absolute
+      before:bottom-0
+      before:left-0
+      before:top-0
+      before:z-0
+      before:h-full
+      before:w-0
+      before:bg-theme/80
+      before:transition-all
+      before:duration-500
+      hover:before:w-full">
+          <span className="relative z-10 font-semibold">MORE PROJECTS</span>
         </Link>
       </div>
     );
@@ -80,7 +100,7 @@ export default function ProjectClient({
           {/* Content - right side */}
           <div className="w-full lg:w-1/2 flex items-center justify-start p-4 lg:p-8">
             <div className="w-full">
-              <h2 className="text-2xl font-medium text-theme-accent mb-1">
+              <h2 className="text-2xl font-medium text-theme-secondary-text/80 mb-1">
                 Project Details
               </h2>
               <h1 className="text-4xl md:text-5xl font-bold text-theme mb-4">
@@ -93,7 +113,7 @@ export default function ProjectClient({
               )}
 
               {/* Description */}
-              <div className="text-lg text-theme opacity-90 mb-6">
+              <div className="text-xl text-theme-secondary-text opacity-90 mb-6">
                 {description}
               </div>
 
@@ -107,7 +127,7 @@ export default function ProjectClient({
                     {technologies.map((tech, index) => (
                       <span
                         key={index}
-                        className="px-3 py-1 bg-theme-accent/20 text-theme-secondary-text rounded-md text-sm">
+                        className="px-3 py-1 bg-theme-third-accent/20 text-theme-secondary-text rounded-md text-sm shadow-xl">
                         {tech}
                       </span>
                     ))}
@@ -116,15 +136,36 @@ export default function ProjectClient({
               )}
 
               {/* Project links */}
-              <div className="flex flex-row gap-4 items-center mb-6">
+              <div className="flex flex-col sm:flex-row gap-5 items-center mb-6">
                 {projectUrl && (
                   <a
                     href={projectUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-theme-accent text-theme-secondary-text hover:opacity-70 transition-colors">
-                    <FaExternalLinkAlt size={16} />
-                    View Project
+                    className="w-full sm:w-1/3 inline-flex items-center justify-center gap-2 px-6 py-3 min-h-[3.5rem] font-semibold bg-theme-accent text-theme xl:text-lg 
+        relative overflow-hidden
+        hover:text-theme-third-text
+        focus:outline-none 
+        focus:ring-2 
+        focus:ring-theme-accent 
+        focus:ring-offset-2 
+        disabled:opacity-50
+        transition-all duration-300 
+        before:absolute
+        before:bottom-0
+        before:left-0
+        before:top-0
+        before:z-0
+        before:h-full
+        before:w-0
+        before:bg-theme/80
+        before:transition-all
+        before:duration-500
+        hover:before:w-full">
+                    <span className="relative z-10 flex items-center gap-2">
+                      <FaExternalLinkAlt size={18} />
+                      View Project
+                    </span>
                   </a>
                 )}
                 {githubUrl && (
@@ -132,19 +173,55 @@ export default function ProjectClient({
                     href={githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-theme-accent text-theme-accent hover:bg-white/10 transition-colors">
-                    <FaGithub size={18} />
-                    View Code
+                    className="w-full sm:w-1/3 inline-flex items-center justify-center gap-2 px-6 py-3 min-h-[3.5rem] font-semibold border-2 border-theme-accent text-theme  xl:text-lg  
+        relative overflow-hidden
+        hover:text-theme-third-text
+        hover:border-transparent
+              transition-colors duration-300
+      before:absolute
+       before:bottom-0
+     before:right-0
+    before:top-0
+    before:z-0
+      before:h-full
+      before:w-0
+      before:bg-theme
+      before:transition-all
+      before:duration-500
+      hover:before:w-full">
+                    <span className="relative z-10 flex items-center gap-2">
+                      <FaGithub size={20} />
+                      View Code
+                    </span>
                   </a>
                 )}
               </div>
 
               {/* Back to projects */}
-              <div>
+              <div className="sm:w-1/3 ">
                 <Link
                   href="/projects"
-                  className="inline-block px-6 py-3  bg-theme-accent border border-theme-accent text-theme hover:bg-theme-accent/10 transition-colors">
-                  More Projects
+                  className=" w-full inline-flex items-center justify-center px-6 py-3 min-h-[3.5rem] bg-theme-accent text-theme xl:text-lg
+      relative overflow-hidden
+      hover:text-theme-third-text
+      focus:outline-none 
+  
+      disabled:opacity-50
+      transition-all duration-300 
+      before:absolute
+      before:bottom-0
+      before:left-0
+      before:top-0
+      before:z-0
+      before:h-full
+      before:w-0
+      before:bg-theme/80
+      before:transition-all
+      before:duration-500
+      hover:before:w-full">
+                  <span className="relative z-10 font-semibold">
+                    MORE PROJECTS
+                  </span>
                 </Link>
               </div>
             </div>

@@ -207,7 +207,7 @@ export default function ContactForm({ theme, about }: ContactFormProps) {
     focus:ring-2 
     focus:ring-theme-accent 
     focus:ring-offset-2 
-    disabled:opacity-50
+    disabled:opacity-70
     transition-all duration-300 
     before:absolute
     before:bottom-0

@@ -9,7 +9,7 @@ export const ContactInfo = ({
   const { location, email } = about || {};
 
   return (
-    <div className="w-full md:w-5/12 lg:w-4/12 xl:w-4/12 md:pl-8 lg:pl-25  mb-8 md:mb-0">
+    <div className="w-full md:w-5/12 lg:w-4/12 xl:w-4/12 md:pl-8 lg:pl-18 xl:pl-25  mb-8 md:mb-0">
       <div className="text-theme-secondary-text md:text-theme-secondary-text">
         <h3 className="text-4xl font-bold mb-5">Let's Connect</h3>
         <div className="flex items-center my-4">
@@ -24,7 +24,7 @@ export const ContactInfo = ({
           {location && (
             <div className="flex items-start">
               <div className="flex items-center gap-3">
-                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-theme/20">
+                <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full bg-theme/20">
                   <FaMapMarkerAlt className="h-5 w-5 text-theme-third-text" />
                 </div>
                 <span className="text-xl">{location}</span>
@@ -34,7 +34,7 @@ export const ContactInfo = ({
 
           {email && (
             <div className="flex items-center gap-3">
-              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-theme/20">
+              <div className="flex flex-shrink-0 items-center justify-center w-12 h-12 rounded-full bg-theme/20">
                 <FaEnvelope className="h-5 w-5 text-theme-third-text" />
               </div>
               <a

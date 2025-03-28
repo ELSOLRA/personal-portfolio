@@ -131,11 +131,31 @@ export default function ProjectListClient({
           <div className="mt-8 flex justify-center">
             <Link
               href="/projects"
-              className="w-3/4 sm:w-2/3 md:w-1/2 lg:w-2/8 inline-flex border-2 border-theme-accent/80 items-center justify-center gap-2 px-6 py-3 bg-theme-accent/20 text-theme-secondary-text text-lg font-bold hover:opacity-80 transition-opacity group">
-              <span>View all projects</span>
+              className="px-7 py-3 text-center bg-theme-accent text-theme font-semibold text-lg lg:w-1/4 flex items-center justify-center gap-4 min-h-[3.5rem]
+      relative overflow-hidden
+      hover:text-theme-third-text
+      focus:outline-none 
+      focus:ring-2 
+      focus:ring-theme-accent/50 
+      focus:ring-offset-2 
+      disabled:opacity-50
+      transition-all duration-300 
+      before:absolute
+      before:bottom-0
+      before:left-0
+      before:top-0
+      before:z-0
+      before:h-full
+      before:w-0
+      before:bg-theme/80
+      before:transition-all
+      before:duration-500
+      hover:before:w-full
+      group">
+              <span className="relative z-10">VIEW ALL PROJECTS</span>
               <PiArrowFatLinesRightBold
                 size={22}
-                className="transform transition-all duration-500 group-hover:translate-x-3"
+                className=" relative z-10 transform transition-all duration-500 group-hover:translate-x-4"
               />
             </Link>
           </div>
@@ -243,7 +263,7 @@ function ProjectCard({
               {technologies.slice(0, isLarge ? 5 : 3).map((tech, index) => (
                 <span
                   key={index}
-                  className="px-2 py-0.5 bg-theme-third-accent/20 text-theme-secondary-text text-sm rounded font-bold">
+                  className="px-2 py-0.5 bg-theme-third-accent/20 text-theme-secondary-text text-sm rounded font-bold shadow-xl">
                   {tech}
                 </span>
               ))}

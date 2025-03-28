@@ -7,7 +7,7 @@ import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import { FaFileAlt } from "react-icons/fa";
 import { PiArrowFatLinesRightBold } from "react-icons/pi";
-import { ScaleLoader } from "react-spinners";
+import Link from "next/link";
 
 export default function AboutDetailClient({
   about,
@@ -121,32 +121,56 @@ export default function AboutDetailClient({
             </h2>
 
             <div>
-              <a
-                href="/projects"
-                className="w-3/4 inline-flex border-2 border-theme-accent/80 items-center justify-center  gap-2 px-6 py-3 bg-theme-accent/20 text-theme-secondary-text text-lg font-bold hover:opacity-80 transition-opacity group">
-                <span>See my projects</span>
-                <PiArrowFatLinesRightBold
-                  size={22}
-                  className="transform transition-all duration-500 group-hover:translate-x-3"
-                />
-              </a>
+              <div className="mt-8 flex justify-center">
+                <Link
+                  href="/projects"
+                  className="px-7 py-3 text-center bg-theme-accent text-theme font-semibold text-lg lg:w-full xl:w-9/10 2xl:w-3/4 flex items-center justify-center gap-4 min-h-[3.5rem]
+      relative overflow-hidden
+      hover:text-theme-third-text
+      focus:outline-none 
+      focus:ring-2 
+      focus:ring-theme-accent/50 
+      focus:ring-offset-2 
+      disabled:opacity-50
+      transition-all duration-300 
+      before:absolute
+      before:bottom-0
+      before:left-0
+      before:top-0
+      before:z-0
+      before:h-full
+      before:w-0
+      before:bg-theme/80
+      before:transition-all
+      before:duration-500
+      hover:before:w-full
+      group">
+                  <span className="relative z-10">SEE MY PROJECTS</span>
+                  <PiArrowFatLinesRightBold
+                    size={22}
+                    className=" relative z-10 transform transition-all duration-500 group-hover:translate-x-4"
+                  />
+                </Link>
+              </div>
             </div>
           </div>
 
           {/* Full bio section */}
           {fullBio && (
             <div className="w-full lg:w-3/4 flex flex-col justify-center lg:h-auto lg:mt-0 overflow-x-hidden">
-              <h2 className="text-3xl font-bold text-theme mb-6">I'm a</h2>
+              <h2 className="text-3xl font-bold text-theme-secondary-text mb-6">
+                I'm a
+              </h2>
               <div className="prose prose-lg max-w-none text-theme opacity-90 overflow-x-visible">
                 <p className="text-xl break-words">
-                  <span>
+                  <span className="text-theme-secondary-text tracking-wider">
                     Hi! My name is{" "}
-                    <span className="font-bold text-theme-secondary-text">
+                    <span className="font-bold text-theme tracking-wider">
                       {name}
                     </span>
                     .
                   </span>{" "}
-                  <span className="inline-block w-full">
+                  <span className="inline-block w-full text-theme-secondary-text tracking-wider">
                     <PortableText
                       value={fullBio}
                       components={{
@@ -241,14 +265,14 @@ export default function AboutDetailClient({
                                   key={index}
                                   className="w-4 h-4 md:w-5 md:h-5 rounded-sm relative overflow-hidden">
                                   <div className="absolute inset-0 w-1/2 bg-theme-accent"></div>
-                                  <div className="absolute inset-0 left-1/2 bg-gray-200/20"></div>
+                                  <div className="absolute inset-0 left-1/2 bg-theme-accent/20"></div>
                                 </div>
                               );
                             } else {
                               return (
                                 <div
                                   key={index}
-                                  className="w-4 h-4 md:w-5 md:h-5 rounded-sm bg-gray-200/20"></div>
+                                  className="w-4 h-4 md:w-5 md:h-5 rounded-sm bg-theme-accent/20"></div>
                               );
                             }
                           })}
