@@ -235,7 +235,7 @@ function ProjectCard({
       </div>
 
       {/* Bottom info bar */}
-      <div className="bg-theme-accent py-2 px-3">
+      <div className="bg-theme-accent/60 py-2 px-3">
         {/* Technologies */}
         <div className="flex flex-wrap gap-1 mb-2">
           {technologies && technologies.length > 0 ? (

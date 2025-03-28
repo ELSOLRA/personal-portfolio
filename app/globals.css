@@ -8,13 +8,18 @@
 
     /* Primary theme colors */
     --theme-text-color: #0145A1;
-    --theme-accent-color: #0145A1;
-    --theme-bg-color: #AC9D80;
+    --theme-accent-color: #48acda;
+    --theme-bg-color: #f5e1c0;
 
     /* Secondary theme colors */
     --theme-secondary-text-color: #333333;
     --theme-secondary-accent-color: #2A6FB8;
     --theme-secondary-bg-color: #D8CBAD;
+
+    /* Third theme colors */
+    --theme-third-text-color: #000000;
+    --theme-third-accent-color: #2A6FB8;
+    --theme-third-bg-color: #fff18b;
 
     /* default Button text color*/
     --theme-button-text-color: #ffffff;
@@ -38,6 +43,11 @@
   --color-theme-secondary-text: var(--theme-secondary-text-color);
   --color-theme-secondary-accent: var(--theme-secondary-accent-color);
   --color-theme-secondary-bg: var(--theme-secondary-bg-color);
+
+  /* Third theme colors */
+  --color-theme-third-text: var(--theme-third-text-color);
+  --color-theme-third-accent: var(--theme-third-accent-color);
+  --color-theme-third-bg: var(--theme-third-bg-color);
 }
 
 

@@ -146,10 +146,13 @@ export const getTheme = cache(async (): Promise<Theme | null> => {
       title,
       backgroundColor,
       secondaryBackgroundColor,
+      thirdBackgroundColor,
       textColor,
       secondaryTextColor,
+      thirdTextColor,
       accentColor,
-      secondaryAccentColor
+      secondaryAccentColor,
+      thirdAccentColor
     }`
   );
 });

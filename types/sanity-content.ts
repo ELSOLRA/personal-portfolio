@@ -9,18 +9,6 @@ export interface Hero {
   description?: string;
   mainImage?: SanityImage;
   logo?: SanityImage;
-  /*   backgroundColor?: {
-    hex: string;
-    alpha?: number;
-  };
-  textColor?: {
-    hex: string;
-    alpha?: number;
-  };
-  accentColor?: {
-    hex: string;
-    alpha?: number;
-  }; */
   layout?: "split-right" | "split-left" | "overlay" | "minimal";
 }
 

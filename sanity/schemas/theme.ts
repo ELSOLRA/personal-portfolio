@@ -12,6 +12,7 @@ export default defineType({
       title: "Theme name",
       type: "string",
     }),
+    // Background colors
     defineField({
       name: "backgroundColor",
       title: "Background Color",
@@ -23,8 +24,16 @@ export default defineType({
       title: "Secondary Background Color",
       type: "color",
       description:
-        "Select the secondary background color used for sidebars or alternate sections.",
+        "Select the secondary background color used for content side or alternate sections.",
     }),
+    defineField({
+      name: "thirdBackgroundColor",
+      title: "Third Background Color",
+      type: "color",
+      description:
+        "Select the third background color used for content side or alternate sections, cards, modals, or popups.",
+    }),
+    // Text colors
     defineField({
       name: "textColor",
       title: "Text Color",
@@ -38,6 +47,14 @@ export default defineType({
       description: "Select the secondary color for text in alternate sections.",
     }),
     defineField({
+      name: "thirdTextColor",
+      title: "Third Text Color",
+      type: "color",
+      description:
+        "Select the third color for text in alternate sections, captions, footnotes, or muted text.",
+    }),
+    // Accent colors
+    defineField({
       name: "accentColor",
       title: "Accent Color",
       type: "color",
@@ -49,6 +66,13 @@ export default defineType({
       type: "color",
       description:
         "Select the secondary color for buttons and accents in alternate sections.",
+    }),
+    defineField({
+      name: "thirdAccentColor",
+      title: "Third Accent Color",
+      type: "color",
+      description:
+        "Select the third accent color for buttons and accents in alternate sections, highlights or special elements.",
     }),
   ],
   preview: {
