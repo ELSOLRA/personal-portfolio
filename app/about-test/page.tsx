@@ -1,11 +1,9 @@
 import { getAbout } from "@/sanity/lib/queries";
 import { urlForImage } from "@/sanity/lib/image";
 import Image from "next/image";
-import Navigation from "../components/global/navigation";
 
 export default async function AboutTestPage() {
   const about = await getAbout();
-  console.log("about--------", about);
 
   return (
     <div className="max-w-3xl mx-auto p-4">

@@ -159,7 +159,7 @@ export default function AboutDetailClient({
           {fullBio && (
             <div className="w-full lg:w-3/4 flex flex-col justify-center lg:h-auto lg:mt-0 overflow-x-hidden">
               <h2 className="text-3xl font-bold text-theme-secondary-text mb-6">
-                I'm a
+                I&apos;m a
               </h2>
               <div className="prose prose-lg max-w-none text-theme opacity-90 overflow-x-visible">
                 <p className="text-xl break-words">

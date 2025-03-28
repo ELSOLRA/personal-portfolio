@@ -10,8 +10,6 @@ import { useCallback, useEffect, useState } from "react";
 export default function ContactForm({ theme, about }: ContactFormProps) {
   useThemeSetter(theme);
 
-  if (!theme || !about) return null;
-
   // initial form state
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
@@ -125,6 +123,8 @@ export default function ContactForm({ theme, about }: ContactFormProps) {
       if (removeMessageTimeoutId) clearTimeout(removeMessageTimeoutId);
     };
   }, [status.message, status.visible]);
+
+  if (!theme || !about) return null;
 
   return (
     <section

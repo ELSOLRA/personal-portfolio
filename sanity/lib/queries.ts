@@ -41,7 +41,7 @@ export const getAbout = cache(async (): Promise<About | null> => {
       skills
     }`
     );
-    console.log("About query result:", result);
+
     return result;
   } catch (error) {
     console.error("Error fetching about data:", error);

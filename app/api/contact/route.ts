@@ -18,7 +18,7 @@ export async function POST(request: Request) {
     }
 
     // send email
-    const { data: emailData, error } = await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: "Contact Form <onboarding@resend.dev>", //  domain for dev
       to: process.env.EMAIL_TO || "your-email@example.com",
       subject: `Contact Form: ${subject}`,
@@ -33,10 +33,18 @@ export async function POST(request: Request) {
       success: true,
       message: "Email sent successfully",
     });
-  } catch (error: any) {
-    console.error("Error sending email:", error);
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error("Error sending email:", error);
+      return NextResponse.json(
+        { error: error.message || "Failed to send message" },
+        { status: 500 }
+      );
+    }
+    // fallback for other error types
+    console.error("Unknown error sending email:", error);
     return NextResponse.json(
-      { error: error.message || "Failed to send message" },
+      { error: "Failed to send message" },
       { status: 500 }
     );
   }
