@@ -1,16 +1,55 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #171717;
+
+    /* Primary theme colors */
+    --theme-text-color: #0145A1;
+    --theme-accent-color: #48acda;
+    --theme-bg-color: #f5e1c0;
+
+    /* Secondary theme colors */
+    --theme-secondary-text-color: #333333;
+    --theme-secondary-accent-color: #2A6FB8;
+    --theme-secondary-bg-color: #D8CBAD;
+
+    /* Third theme colors */
+    --theme-third-text-color: #000000;
+    --theme-third-accent-color: #2A6FB8;
+    --theme-third-bg-color: #fff18b;
+
+    /* default Button text color*/
+    --theme-button-text-color: #ffffff;
+  }
 }
 
 @theme inline {
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-manrope: var(--font-manrope);
+
+  /* Primary theme colors */
+  --color-theme: var(--theme-text-color);
+  --color-theme-accent: var(--theme-accent-color);
+  --color-theme-bg: var(--theme-bg-color);
+
+  /* Secondary theme colors */
+  --color-theme-secondary-text: var(--theme-secondary-text-color);
+  --color-theme-secondary-accent: var(--theme-secondary-accent-color);
+  --color-theme-secondary-bg: var(--theme-secondary-bg-color);
+
+  /* Third theme colors */
+  --color-theme-third-text: var(--theme-third-text-color);
+  --color-theme-third-accent: var(--theme-third-accent-color);
+  --color-theme-third-bg: var(--theme-third-bg-color);
 }
+
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -19,8 +58,55 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+body,
+main,
+div {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+@layer utilities {
+  @keyframes blink {
+
+    from,
+    to {
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 1;
+    }
+  }
+
+  .animate-cursor-blink {
+    animation: blink 0.75s step-end infinite;
+  }
+}
+
+html:not(.hydrated) {
+  opacity: 0;
+}
+
+html.hydrated {
+  opacity: 1;
+  transition: opacity 0.4s ease-in;
+}
+
+html:not(.hydrated) {
+  animation: show 0s 3s forwards;
+}
+
+@keyframes show {
+  to {
+    opacity: 1;
+  }
 }
