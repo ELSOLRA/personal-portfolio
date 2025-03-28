@@ -120,7 +120,7 @@ export default function ProjectListClient({
             <div className="absolute  left-1/2 transform -translate-x-1/2 w-[120%] h-1 bg-theme"></div>
           </div>
         </div>
-        <p className="text-3xl text-theme opacity-80 text-center mb-12">
+        <p className="text-3xl text-theme-secondary-text font-semibold opacity-80 text-center mb-12">
           Check out some of my recent work
         </p>
 
@@ -131,11 +131,31 @@ export default function ProjectListClient({
           <div className="mt-8 flex justify-center">
             <Link
               href="/projects"
-              className="w-3/4 sm:w-2/3 md:w-1/2 lg:w-2/8 inline-flex border-2 border-theme-accent/80 items-center justify-center gap-2 px-6 py-3 bg-theme-accent/20 text-theme-secondary-text text-lg font-bold hover:opacity-80 transition-opacity group">
-              <span>View all projects</span>
+              className="px-7 py-3 text-center bg-theme-accent text-theme font-semibold text-lg lg:w-1/4 flex items-center justify-center gap-4 min-h-[3.5rem]
+      relative overflow-hidden
+      hover:text-theme-third-text
+      focus:outline-none 
+      focus:ring-2 
+      focus:ring-theme-accent/50 
+      focus:ring-offset-2 
+      disabled:opacity-50
+      transition-all duration-300 
+      before:absolute
+      before:bottom-0
+      before:left-0
+      before:top-0
+      before:z-0
+      before:h-full
+      before:w-0
+      before:bg-theme/80
+      before:transition-all
+      before:duration-500
+      hover:before:w-full
+      group">
+              <span className="relative z-10">VIEW ALL PROJECTS</span>
               <PiArrowFatLinesRightBold
                 size={22}
-                className="transform transition-all duration-500 group-hover:translate-x-3"
+                className=" relative z-10 transform transition-all duration-500 group-hover:translate-x-4"
               />
             </Link>
           </div>
@@ -194,7 +214,7 @@ function ProjectCard({
         <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
           <Link
             href={`/projects/${slug?.current}`}
-            className="relative p-4 bg-transparent text-white hover:text-theme-accent transition-all duration-300 transform hover:scale-110 group/icon">
+            className="relative p-4 bg-transparent text-white hover:text-theme/90 transition-all duration-300 transform hover:scale-110 group/icon ">
             <FaLink size={isLarge ? 30 : 25} />
             {/* Tooltip */}
             <span className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 whitespace-nowrap bg-black text-white text-sm py-1 px-2 rounded opacity-0 group-hover/icon:opacity-100 transition-opacity">
@@ -243,12 +263,12 @@ function ProjectCard({
               {technologies.slice(0, isLarge ? 5 : 3).map((tech, index) => (
                 <span
                   key={index}
-                  className="px-2 py-0.5 bg-theme-secondary-accent/10 text-theme-secondary-text text-sm rounded font-bold">
+                  className="px-2 py-0.5 bg-theme-third-accent/20 text-theme-secondary-text text-sm rounded font-bold shadow-xl">
                   {tech}
                 </span>
               ))}
               {technologies.length > (isLarge ? 5 : 3) && (
-                <span className="px-2 py-0.5 bg-theme-secondary-accent/10 text-theme-accent text-sm rounded font-bold">
+                <span className="px-2 py-0.5 bg-theme-third-accent/20 text-theme-secondary-text text-sm rounded font-bold">
                   +{technologies.length - (isLarge ? 5 : 3)}
                 </span>
               )}
@@ -258,7 +278,7 @@ function ProjectCard({
 
         {/* Title */}
         <h3
-          className={`${isLarge ? "text-xl" : "text-lg"} font-bold text-theme-secondary-text truncate mb-2 mt-3`}>
+          className={`${isLarge ? "text-2xl" : "text-xl"} font-bold text-theme-secondary-text truncate mb-2 mt-3`}>
           {title}
         </h3>
 
