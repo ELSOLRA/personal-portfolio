@@ -22,9 +22,7 @@ export default function HeroClient({
   const {
     title = "Hi, I'm a Developer",
     subtitle = "Web Developer",
-
     mainImage,
-    logo,
     layout = "split-right",
   } = hero;
 
@@ -189,13 +187,40 @@ export default function HeroClient({
             <div className="mt-8 flex gap-4">
               <Link
                 href={primaryButtonUrl}
-                className="px-7 py-3 transition-colors text-center bg-theme-accent text-theme font-semibold hover:opacity-90 text-lg w-full flex items-center justify-center min-h-[3.5rem]">
-                {primaryButtonText}
+                className="px-7 py-3  text-center bg-theme-accent text-theme font-semibold hover:text-theme-third-text text-lg w-full flex items-center justify-center min-h-[3.5rem]
+                relative overflow-hidden
+      transition-colors duration-300
+      before:absolute
+      before:bottom-0
+      before:left-0
+      before:top-0
+      before:z-0
+      before:h-full
+      before:w-0
+      before:bg-theme/80
+      before:transition-all
+      before:duration-500
+      hover:before:w-full">
+                <span className="relative z-10">{primaryButtonText}</span>
               </Link>
               <Link
                 href={secondaryButtonUrl}
-                className="px-7 py-3 border-2 border-theme-accent text-theme font-semibold hover:bg-white/10 transition-colors text-center text-lg w-full flex items-center justify-center min-h-[3.5rem]">
-                {secondaryButtonText}
+                className="px-7 py-3 border-2 border-theme-accent  text-theme hover:text-theme-third-text font-semibold text-center text-lg w-full flex items-center justify-center min-h-[3.5rem]
+                relative overflow-hidden                   
+      hover:border-transparent
+      transition-colors duration-300
+      before:absolute
+       before:bottom-0
+     before:right-0
+    before:top-0
+    before:z-0
+      before:h-full
+      before:w-0
+      before:bg-theme
+      before:transition-all
+      before:duration-500
+      hover:before:w-full">
+                <span className="relative z-10">{secondaryButtonText}</span>
               </Link>
             </div>
           </div>

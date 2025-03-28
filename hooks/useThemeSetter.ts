@@ -17,7 +17,7 @@ export function useThemeSetter(theme: Theme | null) {
           theme.secondaryAccentColor?.hex || "#2A6FB8",
         "--theme-secondary-bg-color":
           theme.secondaryBackgroundColor?.hex || "#D8CBAD",
-        "--theme-third-text-color": theme.thirdTextColor?.hex || "#333333",
+        "--theme-third-text-color": theme.thirdTextColor?.hex || "#000000",
         "--theme-third-accent-color": theme.thirdAccentColor?.hex || "#2A6FB8",
         "--theme-third-bg-color": theme.thirdBackgroundColor?.hex || "#fff18b",
         "--theme-button-text-color": "#ffffff",

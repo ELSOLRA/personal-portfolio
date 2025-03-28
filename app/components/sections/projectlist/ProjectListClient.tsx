@@ -120,7 +120,7 @@ export default function ProjectListClient({
             <div className="absolute  left-1/2 transform -translate-x-1/2 w-[120%] h-1 bg-theme"></div>
           </div>
         </div>
-        <p className="text-3xl text-theme opacity-80 text-center mb-12">
+        <p className="text-3xl text-theme-secondary-text font-semibold opacity-80 text-center mb-12">
           Check out some of my recent work
         </p>
 
@@ -194,7 +194,7 @@ function ProjectCard({
         <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
           <Link
             href={`/projects/${slug?.current}`}
-            className="relative p-4 bg-transparent text-white hover:text-theme-accent transition-all duration-300 transform hover:scale-110 group/icon">
+            className="relative p-4 bg-transparent text-white hover:text-theme/90 transition-all duration-300 transform hover:scale-110 group/icon ">
             <FaLink size={isLarge ? 30 : 25} />
             {/* Tooltip */}
             <span className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 whitespace-nowrap bg-black text-white text-sm py-1 px-2 rounded opacity-0 group-hover/icon:opacity-100 transition-opacity">
@@ -243,12 +243,12 @@ function ProjectCard({
               {technologies.slice(0, isLarge ? 5 : 3).map((tech, index) => (
                 <span
                   key={index}
-                  className="px-2 py-0.5 bg-theme-secondary-accent/10 text-theme-secondary-text text-sm rounded font-bold">
+                  className="px-2 py-0.5 bg-theme-third-accent/20 text-theme-secondary-text text-sm rounded font-bold">
                   {tech}
                 </span>
               ))}
               {technologies.length > (isLarge ? 5 : 3) && (
-                <span className="px-2 py-0.5 bg-theme-secondary-accent/10 text-theme-accent text-sm rounded font-bold">
+                <span className="px-2 py-0.5 bg-theme-third-accent/20 text-theme-secondary-text text-sm rounded font-bold">
                   +{technologies.length - (isLarge ? 5 : 3)}
                 </span>
               )}
@@ -258,7 +258,7 @@ function ProjectCard({
 
         {/* Title */}
         <h3
-          className={`${isLarge ? "text-xl" : "text-lg"} font-bold text-theme-secondary-text truncate mb-2 mt-3`}>
+          className={`${isLarge ? "text-2xl" : "text-xl"} font-bold text-theme-secondary-text truncate mb-2 mt-3`}>
           {title}
         </h3>
 

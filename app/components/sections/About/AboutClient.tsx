@@ -61,7 +61,7 @@ export default function AboutClient({
               </h3>
 
               {/* Short bio */}
-              <div className="text-xl font-semibold text-theme opacity-90 mb-6">
+              <div className="text-xl font-semibold text-theme-secondary-text/90 tracking-wide mb-6">
                 {shortBio}
               </div>
 
@@ -71,18 +71,36 @@ export default function AboutClient({
 
                 <Link
                   href="/about"
-                  className="inline-block px-6 py-3 bg-theme-accent text-theme hover:opacity-70 transition-colors">
-                  MORE ABOUT ME
+                  className="px-7 py-3  text-center bg-theme-accent text-theme font-semibold hover:opacity-90 text-lg lg:w-1/3 flex items-center justify-center min-h-[3.5rem]
+                  relative overflow-hidden
+    focus:outline-none 
+    focus:ring-2 
+    focus:ring-theme-accent 
+    focus:ring-offset-2 
+    disabled:opacity-50
+    transition-all duration-300 
+    before:absolute
+    before:bottom-0
+     before:right-0
+    before:top-0
+    before:z-0
+    before:h-full
+    before:w-0
+    before:bg-theme-third-text/80
+    before:transition-all
+    before:duration-500
+    hover:before:w-full">
+                  <span className="relative z-10">MORE ABOUT ME</span>
                 </Link>
 
-                <div className="flex gap-4 items-center">
+                <div className="flex gap-5 items-center">
                   {socialLinks?.github && (
                     <a
                       href={socialLinks.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-theme hover:text-theme-accent transition-colors">
-                      <FaGithub size={28} />
+                      className="text-theme hover:text-theme-third-text/80 transition-colors">
+                      <FaGithub size={32} />
                     </a>
                   )}
                   {socialLinks?.linkedin && (
@@ -90,8 +108,8 @@ export default function AboutClient({
                       href={socialLinks.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-theme hover:text-theme-accent transition-colors">
-                      <FaLinkedin size={28} />
+                      className="text-theme hover:text-theme-third-text/80 transition-colors">
+                      <FaLinkedin size={32} />
                     </a>
                   )}
                 </div>

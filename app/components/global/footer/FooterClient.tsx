@@ -49,7 +49,7 @@ export default function FooterClient({
                 href={socialLinks.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-theme-secondary-text hover:text-white transition-colors">
+                className="text-theme-secondary-text hover:text-theme-third-text transition-colors">
                 <FaGithub size={24} />
               </a>
             )}
@@ -58,7 +58,7 @@ export default function FooterClient({
                 href={socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-theme-secondary-text hover:text-white transition-colors">
+                className="text-theme-secondary-text hover:text-theme-third-text transition-colors">
                 <FaLinkedin size={24} />
               </a>
             )}
@@ -69,9 +69,12 @@ export default function FooterClient({
         <div className=" flex justify-end items-center">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="bg-theme-secondary-text/10 hover:bg-theme-secondary-text/20 text-theme-secondary-text p-2 border-2 rounded-full transition-all duration-300 "
+            className="bg-theme-secondary-text/10 hover:bg-theme-secondary-text/20 text-theme-secondary-text hover:text-theme-secondary-accent p-2 border-2 rounded-full transition-all duration-300 "
             aria-label="Scroll to top">
-            <RxDoubleArrowUp size={28} />
+            <RxDoubleArrowUp
+              size={28}
+              className="hover:text-theme-secondary-accent"
+            />
           </button>
         </div>
       </div>

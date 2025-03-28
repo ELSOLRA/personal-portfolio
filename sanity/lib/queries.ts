@@ -166,10 +166,13 @@ export const getActiveTheme = cache(async (): Promise<Theme | null> => {
         title,
         backgroundColor,
         secondaryBackgroundColor,
+        thirdBackgroundColor,
         textColor,
         secondaryTextColor,
+         thirdTextColor,
         accentColor,
-        secondaryAccentColor
+        secondaryAccentColor,
+        thirdAccentColor
       }
     }.theme`
   );

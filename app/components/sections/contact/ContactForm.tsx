@@ -201,8 +201,28 @@ export default function ContactForm({ theme, about }: ContactFormProps) {
                 <button
                   type="submit"
                   disabled={status.submitting}
-                  className="w-4/12 px-6 py-4 text-xl bg-theme-bg text-theme font-semibold  hover:bg-opacity-90 transition-colors focus:outline-none focus:ring-2 focus:ring-theme-accent focus:ring-offset-2 disabled:opacity-50">
-                  {status.submitting ? "Sending..." : "Send Message"}
+                  className="w-4/12 px-6 py-4 text-xl bg-theme-bg text-theme-third-text font-semibold 
+    relative overflow-hidden
+    focus:outline-none 
+    focus:ring-2 
+    focus:ring-theme-accent 
+    focus:ring-offset-2 
+    disabled:opacity-50
+    transition-all duration-300 
+    before:absolute
+    before:bottom-0
+    before:left-0
+    before:top-0
+    before:z-0
+    before:h-full
+    before:w-0
+    before:bg-theme/80
+    before:transition-all
+    before:duration-500
+    hover:before:w-full">
+                  <span className="relative z-10">
+                    {status.submitting ? "Sending..." : "Send Message"}
+                  </span>
                 </button>
               </div>
 
