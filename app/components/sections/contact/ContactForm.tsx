@@ -201,7 +201,7 @@ export default function ContactForm({ theme, about }: ContactFormProps) {
                 <button
                   type="submit"
                   disabled={status.submitting}
-                  className="w-4/12 px-6 py-4 text-xl bg-theme-bg text-theme-third-text font-semibold 
+                  className="w-full sm:w-4/12 px-6 py-4 text-xl bg-theme-bg text-theme-third-text font-semibold 
     relative overflow-hidden
     focus:outline-none 
     focus:ring-2 

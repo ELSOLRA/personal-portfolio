@@ -254,10 +254,10 @@ export default function HeroClient({
       </div>
 
       {/* Mobile Content Overlay */}
-      <div className="md:hidden relative z-10 flex items-center justify-center h-screen">
+      <div className="md:hidden relative z-10 flex  items-center justify-center h-screen">
         <div
-          className={`w-full max-w-sm px-6 py-10 ${isImageLeft ? "ml-auto mr-8" : "ml-8 mr-auto"}`}>
-          <div className="relative">
+          className={`w-full h-full flex flex-col px-6 sm:px-25 py-10 ${isImageLeft ? "ml-auto mr-8" : "ml-8 mr-auto"}`}>
+          <div className="relative mt-auto">
             <HiOutlineChevronRight className="absolute -left-12 text-theme text-5xl" />
             <h1 className="text-5xl font-bold tracking-tight text-theme">
               <TypewriterText text={`${title}`} />
@@ -272,16 +272,43 @@ export default function HeroClient({
             {subtitle}
           </h2>
 
-          <div className="mt-6 flex flex-col sm:flex-row gap-3">
+          <div className="mt-auto flex flex-col gap-3">
             <Link
               href={primaryButtonUrl}
-              className="px-5 py-3 transition-colors text-center bg-theme-accent text-theme-button-text font-semibold hover:opacity-90 text-lg">
-              {primaryButtonText}
+              className="px-7 py-3  text-center border-1 border-theme bg-theme-accent text-theme-third-text font-semibold  text-lg w-full flex items-center justify-center min-h-[3.5rem]
+                relative overflow-hidden
+      transition-colors duration-300
+      before:absolute
+      before:bottom-0
+      before:left-0
+      before:top-0
+      before:z-0
+      before:h-full
+      before:w-0
+      before:bg-theme/80
+      before:transition-all
+      before:duration-500
+      hover:before:w-full">
+              <span className="relative z-10">{primaryButtonText}</span>
             </Link>
             <Link
               href={secondaryButtonUrl}
-              className="px-5 py-3 border-2 border-theme-accent text-theme-accent font-semibold hover:bg-white/10 transition-colors text-center text-lg">
-              {secondaryButtonText}
+              className="px-7 py-3 border-1 border-theme  text-theme-third-text font-semibold text-center text-lg w-full flex items-center justify-center min-h-[3.5rem]
+                relative overflow-hidden                   
+      hover:border-transparent
+      transition-colors duration-300
+      before:absolute
+       before:bottom-0
+     before:right-0
+    before:top-0
+    before:z-0
+      before:h-full
+      before:w-0
+      before:bg-theme
+      before:transition-all
+      before:duration-500
+      hover:before:w-full">
+              <span className="relative z-10">{secondaryButtonText}</span>
             </Link>
           </div>
         </div>
