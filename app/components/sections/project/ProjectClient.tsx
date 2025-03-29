@@ -78,7 +78,7 @@ export default function ProjectClient({
       <div className="container mx-auto px-4 max-w-[100rem]">
         <div className="flex flex-col lg:flex-row ">
           {/* Image - left side */}
-          <div className="w-full lg:w-1/2 flex items-center justify-start lg:justify-end p-4 lg:p-8">
+          <div className="w-full lg:w-1/2 flex items-center justify-start lg:justify-end p-4 mt-20 sm:mt-0 lg:p-8">
             <div className="w-full aspect-[4/3] max-w-[800px] rounded-lg overflow-hidden ">
               {mainImage ? (
                 <Image
