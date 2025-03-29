@@ -6,6 +6,7 @@ import { ContactInfo } from "./ContactInfo";
 import { ContactFormData, ContactFormProps, FormStatus } from "@/types";
 import { useThemeSetter } from "@/hooks/useThemeSetter";
 import { useCallback, useEffect, useState } from "react";
+import CustomButton from "@/app/components/ui/CustomButton";
 
 export default function ContactForm({ theme, about }: ContactFormProps) {
   useThemeSetter(theme);
@@ -198,32 +199,15 @@ export default function ContactForm({ theme, about }: ContactFormProps) {
               </div>
 
               <div className="mb-2">
-                <button
+                <CustomButton
                   type="submit"
                   disabled={status.submitting}
-                  className="w-full sm:w-4/12 px-6 py-4 text-xl bg-theme-bg text-theme-third-text font-semibold 
-    relative overflow-hidden
-    focus:outline-none 
-    focus:ring-2 
-    focus:ring-theme-accent 
-    focus:ring-offset-2 
-    disabled:opacity-70
-    transition-all duration-300 
-    before:absolute
-    before:bottom-0
-    before:left-0
-    before:top-0
-    before:z-0
-    before:h-full
-    before:w-0
-    before:bg-theme/80
-    before:transition-all
-    before:duration-500
-    hover:before:w-full">
+                  animation="left-to-right"
+                  className="w-full sm:w-4/12 py-4 text-xl bg-theme-bg text-theme-third-text disabled:opacity-70">
                   <span className="relative z-10">
                     {status.submitting ? "Sending..." : "Send Message"}
                   </span>
-                </button>
+                </CustomButton>
               </div>
 
               <StatusMessage status={status} />

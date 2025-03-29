@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { format } from "date-fns";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import CustomButton from "@/app/components/ui/CustomButton";
 
 export default function ProjectClient({
   project,
@@ -138,91 +139,46 @@ export default function ProjectClient({
               {/* Project links */}
               <div className="flex flex-col sm:flex-row gap-5 items-center mb-6">
                 {projectUrl && (
-                  <a
+                  <CustomButton
+                    as="a"
                     href={projectUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full sm:w-1/3 inline-flex items-center justify-center gap-2 px-6 py-3 min-h-[3.5rem] font-semibold bg-theme-accent text-theme xl:text-lg 
-        relative overflow-hidden
-        hover:text-theme-third-text
-        focus:outline-none 
-        focus:ring-2 
-        focus:ring-theme-accent 
-        focus:ring-offset-2 
-        disabled:opacity-50
-        transition-all duration-300 
-        before:absolute
-        before:bottom-0
-        before:left-0
-        before:top-0
-        before:z-0
-        before:h-full
-        before:w-0
-        before:bg-theme/80
-        before:transition-all
-        before:duration-500
-        hover:before:w-full">
+                    animation="left-to-right"
+                    className="w-full sm:w-1/3 inline-flex gap-2 py-3 bg-theme-accent text-theme xl:text-lg hover:text-theme-third-text">
                     <span className="relative z-10 flex items-center gap-2">
                       <FaExternalLinkAlt size={18} />
                       View Project
                     </span>
-                  </a>
+                  </CustomButton>
                 )}
                 {githubUrl && (
-                  <a
+                  <CustomButton
+                    as="a"
                     href={githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full sm:w-1/3 inline-flex items-center justify-center gap-2 px-6 py-3 min-h-[3.5rem] font-semibold border-2 border-theme-accent text-theme  xl:text-lg  
-        relative overflow-hidden
-        hover:text-theme-third-text
-        hover:border-transparent
-              transition-colors duration-300
-      before:absolute
-       before:bottom-0
-     before:right-0
-    before:top-0
-    before:z-0
-      before:h-full
-      before:w-0
-      before:bg-theme
-      before:transition-all
-      before:duration-500
-      hover:before:w-full">
+                    animation="right-to-left"
+                    className="w-full sm:w-1/3 inline-flex gap-2 py-3 border-2 border-theme-accent text-theme xl:text-lg hover:text-theme-third-text hover:border-transparent before:bg-theme">
                     <span className="relative z-10 flex items-center gap-2">
                       <FaGithub size={20} />
                       View Code
                     </span>
-                  </a>
+                  </CustomButton>
                 )}
               </div>
 
               {/* Back to projects */}
               <div className="sm:w-1/3 ">
-                <Link
+                <CustomButton
+                  as="Link"
                   href="/projects"
-                  className=" w-full inline-flex items-center justify-center px-6 py-3 min-h-[3.5rem] bg-theme-accent text-theme xl:text-lg
-      relative overflow-hidden
-      hover:text-theme-third-text
-      focus:outline-none 
-  
-      disabled:opacity-50
-      transition-all duration-300 
-      before:absolute
-      before:bottom-0
-      before:left-0
-      before:top-0
-      before:z-0
-      before:h-full
-      before:w-0
-      before:bg-theme/80
-      before:transition-all
-      before:duration-500
-      hover:before:w-full">
+                  animation="left-to-right"
+                  className="w-full inline-flex py-3 bg-theme-accent text-theme xl:text-lg hover:text-theme-third-text">
                   <span className="relative z-10 font-semibold">
                     MORE PROJECTS
                   </span>
-                </Link>
+                </CustomButton>
               </div>
             </div>
           </div>

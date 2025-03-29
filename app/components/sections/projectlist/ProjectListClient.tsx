@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaGithub, FaExternalLinkAlt, FaLink } from "react-icons/fa";
 import { PiArrowFatLinesRightBold } from "react-icons/pi";
+import CustomButton from "@/app/components/ui/CustomButton";
 
 export default function ProjectListClient({
   projects,
@@ -129,35 +130,17 @@ export default function ProjectListClient({
         {/* button only shown on main page if there are more than 3 projects */}
         {!isProjectsPage && projects.length > 2 && (
           <div className="mt-8 flex justify-center">
-            <Link
+            <CustomButton
+              as="Link"
               href="/projects"
-              className="px-7 py-3 text-center bg-theme-accent text-theme font-semibold text-lg lg:w-1/4 flex items-center justify-center gap-4 min-h-[3.5rem]
-      relative overflow-hidden
-      hover:text-theme-third-text
-      focus:outline-none 
-      focus:ring-2 
-      focus:ring-theme-accent/50 
-      focus:ring-offset-2 
-      disabled:opacity-50
-      transition-all duration-300 
-      before:absolute
-      before:bottom-0
-      before:left-0
-      before:top-0
-      before:z-0
-      before:h-full
-      before:w-0
-      before:bg-theme/80
-      before:transition-all
-      before:duration-500
-      hover:before:w-full
-      group">
+              animation="left-to-right"
+              className="bg-theme-accent text-theme lg:w-1/4 gap-4 group hover:text-theme-third-text">
               <span className="relative z-10">VIEW ALL PROJECTS</span>
               <PiArrowFatLinesRightBold
                 size={22}
-                className=" relative z-10 transform transition-all duration-500 group-hover:translate-x-4"
+                className="relative z-10 transform transition-all duration-500 group-hover:translate-x-4"
               />
-            </Link>
+            </CustomButton>
           </div>
         )}
       </div>

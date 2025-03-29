@@ -7,6 +7,7 @@ import { HeroClientProps } from "@/types";
 import TypewriterText from "../../global/Typewriter";
 import { useThemeSetter } from "@/hooks/useThemeSetter";
 import { HiOutlineChevronRight } from "react-icons/hi";
+import CustomButton from "@/app/components/ui/CustomButton";
 
 export default function HeroClient({
   hero,
@@ -185,43 +186,21 @@ export default function HeroClient({
             </h2>
 
             <div className="mt-8 flex gap-4">
-              <Link
+              <CustomButton
+                as="Link"
                 href={primaryButtonUrl}
-                className="px-7 py-3  text-center bg-theme-accent text-theme font-semibold hover:text-theme-third-text text-lg w-full flex items-center justify-center min-h-[3.5rem]
-                relative overflow-hidden
-      transition-colors duration-300
-      before:absolute
-      before:bottom-0
-      before:left-0
-      before:top-0
-      before:z-0
-      before:h-full
-      before:w-0
-      before:bg-theme/80
-      before:transition-all
-      before:duration-500
-      hover:before:w-full">
+                animation="left-to-right"
+                className="bg-theme-accent text-theme w-full hover:text-theme-third-text">
                 <span className="relative z-10">{primaryButtonText}</span>
-              </Link>
-              <Link
+              </CustomButton>
+
+              <CustomButton
+                as="Link"
                 href={secondaryButtonUrl}
-                className="px-7 py-3 border-2 border-theme-accent  text-theme hover:text-theme-third-text font-semibold text-center text-lg w-full flex items-center justify-center min-h-[3.5rem]
-                relative overflow-hidden                   
-      hover:border-transparent
-      transition-colors duration-300
-      before:absolute
-       before:bottom-0
-     before:right-0
-    before:top-0
-    before:z-0
-      before:h-full
-      before:w-0
-      before:bg-theme
-      before:transition-all
-      before:duration-500
-      hover:before:w-full">
+                animation="right-to-left"
+                className="border-2 border-theme-accent text-theme w-full hover:text-theme-third-text hover:border-transparent before:bg-theme">
                 <span className="relative z-10">{secondaryButtonText}</span>
-              </Link>
+              </CustomButton>
             </div>
           </div>
         </div>
