@@ -69,7 +69,7 @@ export default function FooterClient({
         <div className=" flex justify-end items-center">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="bg-theme-secondary-text/10 hover:bg-theme-secondary-text/20 text-theme-secondary-text hover:text-theme-secondary-accent p-2 border-2 rounded-full transition-all duration-300 "
+            className="bg-theme-secondary-text/10 hover:bg-theme-secondary-text/20 text-theme-secondary-text hover:text-theme-secondary-accent p-1 sm:p-2 border-2 rounded-full transition-all duration-300 "
             aria-label="Scroll to top">
             <RxDoubleArrowUp
               size={28}

@@ -4,8 +4,8 @@ import { useThemeSetter } from "@/hooks/useThemeSetter";
 import { urlForImage } from "@/sanity/lib/image";
 import { AboutClientProps } from "@/types";
 import Image from "next/image";
-import Link from "next/link";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import CustomButton from "@/app/components/ui/CustomButton";
 
 export default function AboutClient({
   about,
@@ -69,29 +69,14 @@ export default function AboutClient({
               <div className="flex flex-row gap-4 items-center mb-4 md:mb-0 mt-auto">
                 {/* More about me button */}
 
-                <Link
+                <CustomButton
+                  as="Link"
                   href="/about"
-                  className="px-7 py-3  text-center bg-theme-accent text-theme font-semibold hover:opacity-90 text-lg lg:w-1/3 flex items-center justify-center min-h-[3.5rem]
-                  relative overflow-hidden
-    focus:outline-none 
-    focus:ring-2 
-    focus:ring-theme-accent 
-    focus:ring-offset-2 
-    disabled:opacity-50
-    transition-all duration-300 
-    before:absolute
-    before:bottom-0
-     before:right-0
-    before:top-0
-    before:z-0
-    before:h-full
-    before:w-0
-    before:bg-theme-third-text/80
-    before:transition-all
-    before:duration-500
-    hover:before:w-full">
+                  animation="right-to-left"
+                  textColorOnTouch={false}
+                  className="bg-theme-accent text-theme lg:w-1/3 before:bg-theme-third-text/80">
                   <span className="relative z-10">MORE ABOUT ME</span>
-                </Link>
+                </CustomButton>
 
                 <div className="flex gap-5 items-center">
                   {socialLinks?.github && (
