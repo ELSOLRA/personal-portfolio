@@ -117,12 +117,12 @@ export default function NavigationClient({
         </div>
 
         <nav
-          className={`sm:flex ${isMenuOpen ? "absolute top-16 left-0 right-0 bg-gray-900 p-4 shadow-lg flex flex-col" : "hidden"}`}>
-          <ul className="sm:flex space-y-2 sm:space-y-0 sm:space-x-8 text-center sm:text-left">
+          className={`sm:flex ${isMenuOpen ? "absolute top-16 left-0 right-0 bg-theme-bg p-4 shadow-lg flex flex-col" : "hidden"}`}>
+          <ul className="sm:flex space-y-4 sm:space-y-0 sm:space-x-8 text-center sm:text-left">
             <li>
               <Link
                 href="/"
-                className="font-semibold text-xl text-gray-700 hover:text-[#48acda] transition-colors"
+                className="font-semibold text-xl text-theme-secondary-text/90 hover:text-[#48acda] transition-colors"
                 onClick={() => setIsMenuOpen(false)}>
                 Intro
               </Link>
@@ -130,7 +130,7 @@ export default function NavigationClient({
             <li>
               <Link
                 href="/#about-section"
-                className="font-semibold text-xl text-gray-700 hover:text-[#48acda] transition-colors"
+                className="font-semibold text-xl text-theme-secondary-text/90 hover:text-[#48acda] transition-colors"
                 onClick={() => setIsMenuOpen(false)}>
                 About
               </Link>
@@ -138,7 +138,7 @@ export default function NavigationClient({
             <li>
               <Link
                 href="/#projects"
-                className="font-semibold text-xl text-gray-700 hover:text-[#48acda] transition-colors"
+                className="font-semibold text-xl text-theme-secondary-text/90 hover:text-[#48acda] transition-colors"
                 onClick={() => setIsMenuOpen(false)}>
                 Projects
               </Link>
@@ -146,7 +146,7 @@ export default function NavigationClient({
             <li>
               <Link
                 href="/#contact-form"
-                className="font-semibold text-xl text-gray-700 hover:text-[#48acda] transition-colors"
+                className="font-semibold text-xl text-theme-secondary-text/90 hover:text-[#48acda] transition-colors"
                 onClick={() => setIsMenuOpen(false)}>
                 Contact
               </Link>
