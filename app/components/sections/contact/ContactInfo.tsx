@@ -20,26 +20,28 @@ export const ContactInfo = ({
           strengths. Feel free to reach out!
         </p>
 
-        <div className="space-y-5">
+        <div className="space-y-5  ">
           {location && (
-            <div className="flex items-start">
+            <div className="flex items-start text-sm">
               <div className="flex items-center gap-3">
-                <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full bg-theme/20">
+                <div className="flex-shrink-0 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-theme/20">
                   <FaMapMarkerAlt className="h-5 w-5 text-theme-third-text" />
                 </div>
-                <span className="text-xl">{location}</span>
+                <span className="text-lg font-semibold sm:font-normal sm:text-xl">
+                  {location}
+                </span>
               </div>
             </div>
           )}
 
           {email && (
-            <div className="flex items-center gap-3">
-              <div className="flex flex-shrink-0 items-center justify-center w-12 h-12 rounded-full bg-theme/20">
+            <div className="flex items-center gap-3 ">
+              <div className="flex flex-shrink-0 items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-theme/20">
                 <FaEnvelope className="h-5 w-5 text-theme-third-text" />
               </div>
               <a
                 href={`mailto:${email}`}
-                className="hover:text-theme-third-text transition-colors text-xl">
+                className="hover:text-theme md:hover:text-theme-third-text transition-colors text-lg font-semibold sm:font-normal sm:text-xl">
                 {email}
               </a>
             </div>

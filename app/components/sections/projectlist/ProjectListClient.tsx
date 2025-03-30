@@ -7,6 +7,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaGithub, FaExternalLinkAlt, FaLink } from "react-icons/fa";
 import { PiArrowFatLinesRightBold } from "react-icons/pi";
+import CustomButton from "@/app/components/ui/CustomButton";
+import { useEffect, useState } from "react";
 
 export default function ProjectListClient({
   projects,
@@ -15,6 +17,21 @@ export default function ProjectListClient({
   isProjectsPage = false,
 }: ProjectListClientProps) {
   useThemeSetter(theme);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.matchMedia("(max-width: 768px)").matches);
+    };
+
+    checkMobile();
+
+    // event listener for resize
+    window.addEventListener("resize", checkMobile);
+
+    // cleanup
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   if (!theme || !elements) return null;
   if (!projects || projects.length === 0) {
@@ -45,7 +62,11 @@ export default function ProjectListClient({
         return (
           <div className="flex justify-center">
             <div className="w-full md:w-2/3 lg:w-1/2">
-              <ProjectCard project={displayProjects[0]} isLarge={true} />
+              <ProjectCard
+                project={displayProjects[0]}
+                isLarge={true}
+                isMobile={isMobile}
+              />
             </div>
           </div>
         );
@@ -60,6 +81,7 @@ export default function ProjectListClient({
                 key={project._id}
                 project={project}
                 isLarge={false}
+                isMobile={isMobile}
               />
             ))}
           </div>
@@ -70,7 +92,12 @@ export default function ProjectListClient({
       return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {displayProjects.map((project) => (
-            <ProjectCard key={project._id} project={project} isLarge={false} />
+            <ProjectCard
+              key={project._id}
+              project={project}
+              isLarge={false}
+              isMobile={isMobile}
+            />
           ))}
         </div>
       );
@@ -83,7 +110,11 @@ export default function ProjectListClient({
       // one project - full width
       return (
         <div className="grid grid-cols-1 gap-6">
-          <ProjectCard project={projects[0]} isLarge={true} />
+          <ProjectCard
+            project={projects[0]}
+            isLarge={true}
+            isMobile={isMobile}
+          />
         </div>
       );
     } else if (count === 2) {
@@ -91,7 +122,12 @@ export default function ProjectListClient({
       return (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project) => (
-            <ProjectCard key={project._id} project={project} isLarge={true} />
+            <ProjectCard
+              key={project._id}
+              project={project}
+              isLarge={true}
+              isMobile={isMobile}
+            />
           ))}
         </div>
       );
@@ -100,7 +136,12 @@ export default function ProjectListClient({
       return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project) => (
-            <ProjectCard key={project._id} project={project} isLarge={false} />
+            <ProjectCard
+              key={project._id}
+              project={project}
+              isLarge={false}
+              isMobile={isMobile}
+            />
           ))}
         </div>
       );
@@ -129,35 +170,17 @@ export default function ProjectListClient({
         {/* button only shown on main page if there are more than 3 projects */}
         {!isProjectsPage && projects.length > 2 && (
           <div className="mt-8 flex justify-center">
-            <Link
+            <CustomButton
+              as="Link"
               href="/projects"
-              className="px-7 py-3 text-center bg-theme-accent text-theme font-semibold text-lg lg:w-1/4 flex items-center justify-center gap-4 min-h-[3.5rem]
-      relative overflow-hidden
-      hover:text-theme-third-text
-      focus:outline-none 
-      focus:ring-2 
-      focus:ring-theme-accent/50 
-      focus:ring-offset-2 
-      disabled:opacity-50
-      transition-all duration-300 
-      before:absolute
-      before:bottom-0
-      before:left-0
-      before:top-0
-      before:z-0
-      before:h-full
-      before:w-0
-      before:bg-theme/80
-      before:transition-all
-      before:duration-500
-      hover:before:w-full
-      group">
+              animation="left-to-right"
+              className="bg-theme-accent text-theme lg:w-1/4 gap-4 group hover:text-theme-third-text">
               <span className="relative z-10">VIEW ALL PROJECTS</span>
               <PiArrowFatLinesRightBold
                 size={22}
-                className=" relative z-10 transform transition-all duration-500 group-hover:translate-x-4"
+                className="relative z-10 transform transition-all duration-500 group-hover:translate-x-4"
               />
-            </Link>
+            </CustomButton>
           </div>
         )}
       </div>
@@ -168,9 +191,11 @@ export default function ProjectListClient({
 function ProjectCard({
   project,
   isLarge = false,
+  isMobile,
 }: {
   project: Project;
   isLarge?: boolean;
+  isMobile: boolean;
 }) {
   const {
     title = "Project Title",
@@ -189,18 +214,35 @@ function ProjectCard({
       <div
         className={`${isLarge ? "aspect-[16/9]" : "aspect-[4/3]"} w-full relative group`}>
         {mainImage ? (
-          <Image
-            src={urlForImage(mainImage).url()}
-            alt={mainImage.alt || `Image of ${title}`}
-            fill
-            sizes={
-              isLarge
-                ? "(max-width: 768px) 100vw, 90vw"
-                : "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            }
-            className="object-cover w-full h-full"
-            priority
-          />
+          isMobile ? (
+            <Link href={`/projects/${slug?.current}`}>
+              <Image
+                src={urlForImage(mainImage).url()}
+                alt={mainImage.alt || `Image of ${title}`}
+                fill
+                sizes={
+                  isLarge
+                    ? "(max-width: 768px) 100vw, 90vw"
+                    : "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                }
+                className="object-cover w-full h-full"
+                priority
+              />
+            </Link>
+          ) : (
+            <Image
+              src={urlForImage(mainImage).url()}
+              alt={mainImage.alt || `Image of ${title}`}
+              fill
+              sizes={
+                isLarge
+                  ? "(max-width: 768px) 100vw, 90vw"
+                  : "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              }
+              className="object-cover w-full h-full"
+              priority
+            />
+          )
         ) : (
           <div className="w-full h-full flex items-center justify-center bg-gray-200">
             <span className="text-gray-400 text-4xl">?</span>
@@ -208,20 +250,24 @@ function ProjectCard({
         )}
 
         {/* Hover overlay */}
-        <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-60 transition-opacity duration-700"></div>
+        {!isMobile && (
+          <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-60 transition-opacity duration-700"></div>
+        )}
 
         {/* View details icon  */}
-        <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-          <Link
-            href={`/projects/${slug?.current}`}
-            className="relative p-4 bg-transparent text-white hover:text-theme/90 transition-all duration-300 transform hover:scale-110 group/icon ">
-            <FaLink size={isLarge ? 30 : 25} />
-            {/* Tooltip */}
-            <span className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 whitespace-nowrap bg-black text-white text-sm py-1 px-2 rounded opacity-0 group-hover/icon:opacity-100 transition-opacity">
-              View Details
-            </span>
-          </Link>
-        </div>
+        {!isMobile && (
+          <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+            <Link
+              href={`/projects/${slug?.current}`}
+              className="relative p-4 bg-transparent text-white hover:text-theme/90 transition-all duration-300 transform hover:scale-110 group/icon"
+              aria-label={`View details of ${title}`}>
+              <FaLink size={isLarge ? 30 : 25} />
+              <span className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 whitespace-nowrap bg-black text-white text-sm py-1 px-2 rounded opacity-0 group-hover/icon:opacity-100 transition-opacity">
+                View Details
+              </span>
+            </Link>
+          </div>
+        )}
 
         {/* External links */}
         <div className="absolute bottom-3 right-3 flex gap-2 z-10">

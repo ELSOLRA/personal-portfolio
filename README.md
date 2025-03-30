@@ -1,10 +1,21 @@
 # Personal portfolio
 
-## Getting Started
+A modern, responsive portfolio website built with Next.js 15 and Sanity CMS.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
+- Responsive design for all devices
+- Dynamic theme control via Sanity CMS
+- Fully customizable content management
+- Project showcase page with links
+- Contact form with email integration
+- Fast performance with Next.js App Router
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
+
+- Next.js 15
+- TypeScript
+- Tailwind CSS
+- Sanity CMS
+- Vercel deployment
+
